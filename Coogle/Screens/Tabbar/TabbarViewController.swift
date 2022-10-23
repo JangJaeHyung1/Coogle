@@ -64,7 +64,7 @@ extension TabbarViewController {
     
     private func setTabBar(){
         let vc1 = MainViewController()
-        let vc2 = SecondViewController()
+        let vc2 = TipViewController()
         let vc3 = ThirdViewController()
         vc1.title = "꿀팁"
         vc2.title = "요리"

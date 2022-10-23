@@ -1,21 +1,16 @@
 //
-//  ViewController.swift
+//  TipViewController.swift
 //  Coogle
 //
-//  Created by jh on 2022/08/07.
+//  Created by jh on 2022/10/24.
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class MainViewController: UIViewController {
+class TipViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
-    
-    private let naviView: NaviBarUIView = {
-        let view = NaviBarUIView()
-        view.backgroundColor = .white
+    private let naviView: NaviBackUIView = {
+        let view = NaviBackUIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
         return view
@@ -30,8 +25,9 @@ class MainViewController: UIViewController {
     }()
     
     private var collectionView: UICollectionView!
-    private var tableViewMain: UITableView!
-    private var categoryArray: [String] = ["전체", "메인요리", "국·찌개", "밑반찬", "다이어트", "건강주스"]
+    private var tableView: UITableView!
+    private var categoryArray: [String] = ["재료 보관", "요리 상식"]
+    private var tipArray: [String] = ["양파 보관법", "소고기 보관법", "돼지고기 보관법", "당근 보관법"]
     
     private func setCollectionView(){
         let flowLayout = UICollectionViewFlowLayout()
@@ -46,34 +42,45 @@ class MainViewController: UIViewController {
         collectionView.backgroundColor = .white
     }
     
-    private func setTableView(){
-        tableViewMain = UITableView()
-        tableViewMain.dataSource = self
-        tableViewMain.delegate = self
-        tableViewMain.separatorStyle = .none
-        tableViewMain.showsHorizontalScrollIndicator = false
-        tableViewMain.showsVerticalScrollIndicator = false
-        tableViewMain.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.cellId)
-        tableViewMain.translatesAutoresizingMaskIntoConstraints = false
-        tableViewMain.backgroundColor = .white
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        view.backgroundColor = .white
     }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
 
-extension MainViewController {
+
+extension TipViewController {
     private func setUp() {
         setNavi()
         setCollectionView()
-        collectionViewCellSetMargin()
         setTableView()
+        collectionViewCellSetMargin()
         addViews()
         setConstraints()
         bind()
         fetch()
+    }
+    private func setTableView(){
+        tableView = UITableView()
+        //        tableView = UITableView(frame: .zero, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.register(TipTableViewCell.self, forCellReuseIdentifier: TipTableViewCell.cellId)
+        tableView.backgroundColor = .white
+        //        tableView.register(CommunityHeaderView.self, forHeaderFooterViewReuseIdentifier: CommunityHeaderView.headerViewID)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func fetch() {
@@ -82,23 +89,18 @@ extension MainViewController {
     
     private func bind() {
         
-        tableViewMain.rx.itemSelected
-            .subscribe(onNext:{ [unowned self] _ in
-                let nextVC = DetailViewController()
-                self.navigationController?.pushViewController(
-                    nextVC, animated: true)
-            })
-            .disposed(by: disposeBag)
     }
     
     private func setNavi() {
+        naviView.titleLbl.text = "요리 꿀팁"
+        naviView.backBtn.isHidden = true
     }
     
     private func addViews() {
         view.addSubview(naviView)
         view.addSubview(collectionView)
         view.addSubview(bottomLine)
-        view.addSubview(tableViewMain)
+        view.addSubview(tableView)
     }
     
     private func setConstraints() {
@@ -112,21 +114,20 @@ extension MainViewController {
         collectionView.trailingAnchor.constraint(equalTo: naviView.trailingAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
-        tableViewMain.topAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
-        tableViewMain.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableViewMain.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableViewMain.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
         bottomLine.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor).isActive = true
         bottomLine.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor).isActive = true
         bottomLine.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
         bottomLine.heightAnchor.constraint(equalToConstant: 0.3).isActive = true
+        
+        tableView.topAnchor.constraint(equalTo: bottomLine.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
-
 // MARK: - CollectionView Delegate, DataSource
 
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension TipViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArray.count
     }
@@ -178,18 +179,29 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 }
 
-
-// MARK: - TableView Delegate, DataSource
-
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension TipViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tipArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellId, for: indexPath) as! MainTableViewCell
-        cell.backgroundColor = .white
+        let cell = tableView.dequeueReusableCell(withIdentifier: TipTableViewCell.cellId, for: indexPath) as! TipTableViewCell
         cell.selectionStyle = .none
+        cell.configure(with: tipArray[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = TipDetailViewController()
+        self.navigationController?.pushViewController(
+            nextVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 48
     }
 }

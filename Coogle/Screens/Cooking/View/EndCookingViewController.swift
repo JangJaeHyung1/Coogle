@@ -13,6 +13,12 @@ class EndCookingViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     private var tableView: UITableView!
+    var idx: Int = 0
+    var rating = 2 {
+        didSet {
+//            print(rating)
+        }
+    }
 
     private let naviView: NaviBackUIView = {
         let view = NaviBackUIView()
@@ -69,6 +75,16 @@ class EndCookingViewController: UIViewController {
         return lbl
     }()
     
+    private let starImg: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "rating_on")
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.isUserInteractionEnabled = true
+        img.contentMode = .scaleAspectFit
+        //img.layer.masksToBounds = true
+        return img
+    }()
+    
     private let nextBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("리뷰 완료", for: .normal)
@@ -80,12 +96,45 @@ class EndCookingViewController: UIViewController {
         btn.layer.cornerRadius = 4
         return btn
     }()
+    
+    private lazy var starStackView: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [])
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = .horizontal
+        sv.spacing = 4
+        sv.distribution = .fillEqually
+        return sv
+    }()
+    
+    private let progressBar: UISlider = {
+        let slider = UISlider()
+        slider.maximumValue = 4
+        slider.value = 2
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.thumbTintColor = .clear
+        slider.minimumTrackTintColor = .clear
+        slider.maximumTrackTintColor = .clear
+        return slider
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUp()
-    }
+        
+        progressBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sliderTapped(_:))))
+        
+        }
+
+        @objc private func sliderTapped(_ tapRecognizer: UITapGestureRecognizer) {
+            let location = tapRecognizer.location(in: progressBar)
+            let step = progressBar.bounds.width/5
+            let value = Int(location.x/step)
+            progressBar.value = Float(Int(location.x/step))
+            rating = value
+            setStarSlider(value: rating)
+        }
+    
 }
 
 extension EndCookingViewController {
@@ -97,6 +146,31 @@ extension EndCookingViewController {
         bind()
         fetch()
         hideTextFieldKeyboardWhenTappedBackground()
+        starImageInit()
+        setStarSlider()
+    }
+    
+    private func starImageInit() {
+        for i in 0..<5 {
+            let img = UIImageView()
+            img.image = UIImage(named: "rating_on")
+            img.translatesAutoresizingMaskIntoConstraints = false
+            img.isUserInteractionEnabled = true
+            img.contentMode = .scaleAspectFit
+            img.tag = i
+            starStackView.addArrangedSubview(img)
+        }
+    }
+    private func setStarSlider(value: Int = 2) {
+        for index in 0..<5 {
+            if let starImage = starStackView.viewWithTag(index) as? UIImageView {
+                if index <= value {
+                    starImage.image = UIImage(named: "rating_on")
+                } else {
+                    starImage.image = UIImage(named: "rating_off")
+                }
+            }
+        }
     }
 
     private func setTableView(){
@@ -118,7 +192,29 @@ extension EndCookingViewController {
 
     }
 
+
     private func bind() {
+        
+        
+        progressBar.rx.value
+            .subscribe(onNext:{ [unowned self] res in
+                var value = Int(res)
+                if res < 0.5 {
+                    value = 0
+                } else if res < 1.5 {
+                    value = 1
+                } else if res < 2.5 {
+                    value = 2
+                } else if res < 3.5 {
+                    value = 3
+                } else {
+                    value = 4
+                }
+                setStarSlider(value: value)
+                self.rating = value
+                progressBar.value = Float(Int(rating))
+            })
+            .disposed(by: disposeBag)
 
         reviewTextView.rx.didBeginEditing
             .subscribe(onNext:{ [unowned self] res in
@@ -138,25 +234,30 @@ extension EndCookingViewController {
             })
             .disposed(by: disposeBag)
         
-        
+        nextBtn.rx.tap
+            .subscribe(onNext:{ [unowned self] res in
+                self.backTwo(self.idx)
+            })
+            .disposed(by: disposeBag)
+     
+        naviView.backBtn.rx.tap
+            .subscribe(onNext:{ [unowned self] _ in
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
 
     private func setNavi() {
         naviView.titleLbl.text = "리뷰 작성하기"
-        //        self.navigationItem.title = "<#title#>"
-        //        self.navigationController?.navigationBar.prefersLargeTitles = true
-        //        self.navigationItem.largeTitleDisplayMode = .always
-        //        self.navigationItem.setHidesBackButton(true, animated: true)
-        //        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        //        self.navigationController?.navigationBar.isHidden = false
-        //        self.navigationController?.isNavigationBarHidden = true
     }
 
     private func addViews() {
 
         view.addSubview(naviView)
         view.addSubview(titleLbl)
+        view.addSubview(starStackView)
+        view.addSubview(progressBar)
         view.addSubview(reviewTextView)
         view.addSubview(tipLbl)
         view.addSubview(tableView)
@@ -174,6 +275,16 @@ extension EndCookingViewController {
         titleLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 60).isActive = true
         titleLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -60).isActive = true
         
+        starStackView.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 20).isActive = true
+        starStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        starStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        starStackView.widthAnchor.constraint(equalToConstant: 216).isActive = true
+        
+        progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        progressBar.centerYAnchor.constraint(equalTo: starStackView.centerYAnchor).isActive = true
+        progressBar.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        progressBar.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
         reviewTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         reviewTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         reviewTextView.heightAnchor.constraint(equalToConstant: 120).isActive = true
@@ -200,7 +311,7 @@ extension EndCookingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.selectionStyle = .none
         cell.textLabel?.font = BaseFont.normal
         if indexPath.row == 0 {
@@ -210,6 +321,17 @@ extension EndCookingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = TipDetailViewController()
+        self.navigationController?.pushViewController(
+            nextVC, animated: true)
+    }
+}
 
-
+extension EndCookingViewController {
+    func backTwo(_ idx: Int) {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - idx-2], animated: true)
+    }
 }

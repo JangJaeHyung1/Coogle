@@ -232,7 +232,7 @@ extension CookingViewController {
         
         nextBtn.rx.tap
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:{
+            .subscribe(onNext:{ [unowned self] res in
                 if self.audioEngine.isRunning {
                     debugPrint("🔵next btn tap : engine stop")
                     self.inputNode?.removeTap(onBus: 0)
@@ -240,6 +240,7 @@ extension CookingViewController {
                     self.recognitionRequest?.endAudio()
                 }
                 let nextVC = EndCookingViewController()
+                nextVC.idx = self.idx
                 self.navigationController?.pushViewController(
                     nextVC, animated: true)
             })
@@ -248,14 +249,6 @@ extension CookingViewController {
     
     private func setNavi() {
         naviView.titleLbl.text = "소세지 야채 볶음"
-        //        self.navigationItem.title = "<#title#>"
-        //        self.navigationController?.navigationBar.prefersLargeTitles = true
-        //        self.navigationItem.largeTitleDisplayMode = .always
-        //        self.navigationItem.setHidesBackButton(true, animated: true)
-//                self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        //        self.navigationController?.navigationBar.isHidden = false
-        //        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func addViews() {
