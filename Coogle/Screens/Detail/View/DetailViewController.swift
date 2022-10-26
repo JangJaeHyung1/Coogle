@@ -97,7 +97,7 @@ class DetailViewController: UIViewController {
     
     private let starImageView: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "rateIcon")
+        img.image = UIImage(named: "rating_on")
         img.translatesAutoresizingMaskIntoConstraints = false
         img.isUserInteractionEnabled = true
         img.contentMode = .scaleAspectFit

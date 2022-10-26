@@ -173,7 +173,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let flowLayout: UICollectionViewFlowLayout
         flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = UIEdgeInsets.init(top: 0 , left: interval, bottom: 0, right: 0)
+        flowLayout.sectionInset = UIEdgeInsets.init(top: 0 , left: interval, bottom: 0, right: interval)
         self.collectionView.collectionViewLayout = flowLayout
     }
 }
