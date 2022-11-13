@@ -23,6 +23,7 @@ struct BaseFont {
     static let detailTitle = UIFont(name: notoBoldFont, size: 21)
     static let menuTitle = UIFont(name: notoBoldFont, size: 17)
     static let bold = UIFont(name: notoBoldFont, size: 15)
+    static let subBold = UIFont(name: notoBoldFont, size: 13)
     
     
     static let title = UIFont(name: notoRegularFont, size: 21)
@@ -46,6 +47,7 @@ struct BaseColor {
     static let btnColor =  UIColor(red: 1, green: 0.25, blue: 0.25, alpha: 1)
     static let placeholder = UIColor(red: 0.646, green: 0.646, blue: 0.646, alpha: 1)
     static let border = UIColor(red: 0.742, green: 0.742, blue: 0.742, alpha: 1)
-    
+    static let tabbarTintColor = UIColor(red: 1, green: 0.25, blue: 0.25, alpha: 1)
+    static let red = UIColor(red: 1, green: 0.279, blue: 0.279, alpha: 1)
 }
 

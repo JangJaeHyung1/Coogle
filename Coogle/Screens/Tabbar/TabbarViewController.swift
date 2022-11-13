@@ -65,22 +65,24 @@ extension TabbarViewController {
     private func setTabBar(){
         let vc1 = MainViewController()
         let vc2 = TipViewController()
-        let vc3 = ThirdViewController()
-        vc1.title = "꿀팁"
-        vc2.title = "요리"
-        vc3.title = "계정"
-        self.setViewControllers([vc1,vc2,vc3], animated: false)
+        let vc3 = BookmarkViewController()
+        let vc4 = SettingViewController()
+        vc1.title = "레시피"
+        vc2.title = "꿀팁"
+        vc3.title = "북마크"
+        vc4.title = "마이페이지"
+        self.setViewControllers([vc1,vc2,vc3,vc4], animated: false)
         
         guard let items = self.tabBar.items else { return }
         
-        let itemsImage = ["firstTabIcon","thirdTabIcon","thirdTabIcon"]
+        let itemsImage = ["tab_recipe","tab_tip","tab_bookmark","tab_myProfile"]
         
-        for x in 0...2 {
+        for x in 0...3 {
             let image = UIImage(named: itemsImage[x])?.resizedImage(Size: CGSize(width: 24, height: 24))
             items[x].image = image
         }
         
-        self.tabBar.tintColor = BaseColor.main
+        self.tabBar.tintColor = BaseColor.tabbarTintColor
     }
 }
 

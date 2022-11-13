@@ -10,6 +10,15 @@
 		E927933C28BFAE39007BD246 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927933B28BFAE39007BD246 /* ReviewTableViewCell.swift */; };
 		E936C24F28B26846002DF5D8 /* CookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936C24E28B26846002DF5D8 /* CookingViewController.swift */; };
 		E945BD0728AE4ECB00CBC06F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */; };
+		E97B9F432921173700AC42EB /* LaunchScreenLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */; };
+		E97B9F442921173700AC42EB /* LaunchScreenLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F412921173700AC42EB /* LaunchScreenLogo.png */; };
+		E97B9F452921173700AC42EB /* LaunchScreenLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F422921173700AC42EB /* LaunchScreenLogo@3x.png */; };
+		E97B9F4A292117C400AC42EB /* LaunchPageBackView.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F47292117C300AC42EB /* LaunchPageBackView.png */; };
+		E97B9F4B292117C400AC42EB /* LaunchPageBackView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F48292117C300AC42EB /* LaunchPageBackView@2x.png */; };
+		E97B9F4C292117C400AC42EB /* LaunchPageBackView@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F49292117C400AC42EB /* LaunchPageBackView@3x.png */; };
+		E97B9F4E29211D1300AC42EB /* MyRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9F4D29211D1300AC42EB /* MyRecipeViewController.swift */; };
+		E97B9F53292127B500AC42EB /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9F52292127B500AC42EB /* BookmarkViewController.swift */; };
+		E97B9F552921507100AC42EB /* MySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9F542921507100AC42EB /* MySettingViewController.swift */; };
 		E97D37CA28A131650016E582 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D37C928A131650016E582 /* MainTableViewCell.swift */; };
 		E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F12D129003A0800F5B784 /* EndCookingViewController.swift */; };
 		E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C04289EBE81002EA405 /* AppDelegate.swift */; };
@@ -66,6 +75,10 @@
 		E9A49C82289EC2BB002EA405 /* NaviBarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C81289EC2BB002EA405 /* NaviBarUIView.swift */; };
 		E9A49C87289EC381002EA405 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C86289EC381002EA405 /* DesignSystem.swift */; };
 		E9A49C89289EC43C002EA405 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C88289EC43C002EA405 /* Extension.swift */; };
+		E9A790E229059BE700594A75 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A790E129059BE700594A75 /* TipViewController.swift */; };
+		E9A790E42905A95B00594A75 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A790E32905A95B00594A75 /* TipTableViewCell.swift */; };
+		E9A790E62905ACD600594A75 /* TipDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A790E52905ACD600594A75 /* TipDetailViewController.swift */; };
+		E9D5A651290AACD5001051AE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5A650290AACD5001051AE /* SettingViewController.swift */; };
 		E9DADD0028A8D299002897FD /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DADCFF28A8D299002897FD /* TabbarViewController.swift */; };
 		E9DADD0528A8D93A002897FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DADD0428A8D93A002897FD /* DetailViewController.swift */; };
 		E9DADD0728A8DD96002897FD /* NaviBackUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DADD0628A8DD96002897FD /* NaviBackUIView.swift */; };
@@ -76,6 +89,15 @@
 		E927933B28BFAE39007BD246 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		E936C24E28B26846002DF5D8 /* CookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewController.swift; sourceTree = "<group>"; };
 		E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenLogo@2x.png"; sourceTree = "<group>"; };
+		E97B9F412921173700AC42EB /* LaunchScreenLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreenLogo.png; sourceTree = "<group>"; };
+		E97B9F422921173700AC42EB /* LaunchScreenLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenLogo@3x.png"; sourceTree = "<group>"; };
+		E97B9F47292117C300AC42EB /* LaunchPageBackView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchPageBackView.png; sourceTree = "<group>"; };
+		E97B9F48292117C300AC42EB /* LaunchPageBackView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchPageBackView@2x.png"; sourceTree = "<group>"; };
+		E97B9F49292117C400AC42EB /* LaunchPageBackView@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchPageBackView@3x.png"; sourceTree = "<group>"; };
+		E97B9F4D29211D1300AC42EB /* MyRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeViewController.swift; sourceTree = "<group>"; };
+		E97B9F52292127B500AC42EB /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		E97B9F542921507100AC42EB /* MySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingViewController.swift; sourceTree = "<group>"; };
 		E97D37C928A131650016E582 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		E98F12D129003A0800F5B784 /* EndCookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCookingViewController.swift; sourceTree = "<group>"; };
 		E9A49C01289EBE81002EA405 /* Coogle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coogle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +153,10 @@
 		E9A49C81289EC2BB002EA405 /* NaviBarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBarUIView.swift; sourceTree = "<group>"; };
 		E9A49C86289EC381002EA405 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		E9A49C88289EC43C002EA405 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E9A790E129059BE700594A75 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		E9A790E32905A95B00594A75 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
+		E9A790E52905ACD600594A75 /* TipDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailViewController.swift; sourceTree = "<group>"; };
+		E9D5A650290AACD5001051AE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E9DADCFF28A8D299002897FD /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		E9DADD0428A8D93A002897FD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E9DADD0628A8DD96002897FD /* NaviBackUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBackUIView.swift; sourceTree = "<group>"; };
@@ -176,6 +202,43 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E97B9F462921179500AC42EB /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E97B9F47292117C300AC42EB /* LaunchPageBackView.png */,
+				E97B9F48292117C300AC42EB /* LaunchPageBackView@2x.png */,
+				E97B9F49292117C400AC42EB /* LaunchPageBackView@3x.png */,
+				E97B9F412921173700AC42EB /* LaunchScreenLogo.png */,
+				E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */,
+				E97B9F422921173700AC42EB /* LaunchScreenLogo@3x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		E97B9F4F2921278C00AC42EB /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				E97B9F502921279A00AC42EB /* View */,
+				E97B9F512921279E00AC42EB /* ViewModel */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		E97B9F502921279A00AC42EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E97B9F52292127B500AC42EB /* BookmarkViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E97B9F512921279E00AC42EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E9A49BF8289EBE81002EA405 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +270,7 @@
 		E9A49C18289EBEF9002EA405 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				E97B9F462921179500AC42EB /* Image */,
 				E9A49C0A289EBE81002EA405 /* Main.storyboard */,
 				E9A49C0D289EBE84002EA405 /* Assets.xcassets */,
 				E9A49C0F289EBE84002EA405 /* LaunchScreen.storyboard */,
@@ -236,11 +300,14 @@
 		E9A49C1B289EBF12002EA405 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E9A49C1D289EBF6D002EA405 /* Main */,
 				E936C24B28B265E5002DF5D8 /* Cooking */,
 				E9DADD0128A8D90C002897FD /* Detail */,
+				E9A790DE29059BC100594A75 /* TipPage */,
+				E97B9F4F2921278C00AC42EB /* Bookmark */,
+				E9D5A64D290AACA3001051AE /* Setting */,
 				E9DADCFE28A8D276002897FD /* Tabbar */,
 				E9A49C80289EC2A1002EA405 /* Common */,
-				E9A49C1D289EBF6D002EA405 /* Main */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -394,6 +461,58 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E9A790DE29059BC100594A75 /* TipPage */ = {
+			isa = PBXGroup;
+			children = (
+				E9A790DF29059BCC00594A75 /* View */,
+				E9A790E029059BD200594A75 /* ViewModel */,
+			);
+			path = TipPage;
+			sourceTree = "<group>";
+		};
+		E9A790DF29059BCC00594A75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9A790E129059BE700594A75 /* TipViewController.swift */,
+				E9A790E32905A95B00594A75 /* TipTableViewCell.swift */,
+				E9A790E52905ACD600594A75 /* TipDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9A790E029059BD200594A75 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9D5A64D290AACA3001051AE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E9D5A64E290AACB5001051AE /* View */,
+				E9D5A64F290AACBA001051AE /* ViewModel */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		E9D5A64E290AACB5001051AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D5A650290AACD5001051AE /* SettingViewController.swift */,
+				E97B9F4D29211D1300AC42EB /* MyRecipeViewController.swift */,
+				E97B9F542921507100AC42EB /* MySettingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9D5A64F290AACBA001051AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E9DADCFE28A8D276002897FD /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,11 +624,13 @@
 				E9A49C51289EC0C0002EA405 /* Metropolis-ThinItalic.otf in Resources */,
 				E9A49C5A289EC0C0002EA405 /* Metropolis-BoldItalic.otf in Resources */,
 				E9A49C75289EC0CB002EA405 /* SF-Pro-Text-HeavyItalic.otf in Resources */,
+				E97B9F4C292117C400AC42EB /* LaunchPageBackView@3x.png in Resources */,
 				E9A49C66289EC0C5002EA405 /* NotoSansKR-Black.otf in Resources */,
 				E9A49C5C289EC0C0002EA405 /* Metropolis-MediumItalic.otf in Resources */,
 				E9A49C5E289EC0C0002EA405 /* Metropolis-ExtraBold.otf in Resources */,
 				E9A49C78289EC0CB002EA405 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				E9A49C68289EC0CB002EA405 /* SF-Pro-Text-BoldItalic.otf in Resources */,
+				E97B9F432921173700AC42EB /* LaunchScreenLogo@2x.png in Resources */,
 				E9A49C4F289EC0C0002EA405 /* Metropolis-SemiBold.otf in Resources */,
 				E9A49C74289EC0CB002EA405 /* SF-Pro-Text-ThinItalic.otf in Resources */,
 				E9A49C65289EC0C5002EA405 /* NotoSansKR-Thin.otf in Resources */,
@@ -531,12 +652,16 @@
 				E9A49C73289EC0CB002EA405 /* SF-Pro-Text-LightItalic.otf in Resources */,
 				E9A49C6A289EC0CB002EA405 /* SF-Pro-Text-Bold.otf in Resources */,
 				E9A49C62289EC0C5002EA405 /* NotoSansKR-Light.otf in Resources */,
+				E97B9F4A292117C400AC42EB /* LaunchPageBackView.png in Resources */,
 				E9A49C6D289EC0CB002EA405 /* SF-Pro-Text-Regular.otf in Resources */,
 				E9A49C52289EC0C0002EA405 /* Metropolis-Bold.otf in Resources */,
 				E9A49C0C289EBE81002EA405 /* Main.storyboard in Resources */,
 				E9A49C6E289EC0CB002EA405 /* SF-Pro-Text-Medium.otf in Resources */,
 				E9A49C72289EC0CB002EA405 /* SF-Pro-Text-Semibold.otf in Resources */,
+				E97B9F442921173700AC42EB /* LaunchScreenLogo.png in Resources */,
 				E9A49C57289EC0C0002EA405 /* Metropolis-ExtraLightItalic.otf in Resources */,
+				E97B9F452921173700AC42EB /* LaunchScreenLogo@3x.png in Resources */,
+				E97B9F4B292117C400AC42EB /* LaunchPageBackView@2x.png in Resources */,
 				E9A49C71289EC0CB002EA405 /* SF-Pro-Text-Ultralight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,15 +679,22 @@
 				E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */,
 				E9A49C89289EC43C002EA405 /* Extension.swift in Sources */,
 				E927933C28BFAE39007BD246 /* ReviewTableViewCell.swift in Sources */,
+				E9A790E42905A95B00594A75 /* TipTableViewCell.swift in Sources */,
 				E9ED34AC28A028BD008CA171 /* NaviBarCollectionViewCell.swift in Sources */,
+				E97B9F4E29211D1300AC42EB /* MyRecipeViewController.swift in Sources */,
 				E945BD0728AE4ECB00CBC06F /* DetailTableViewCell.swift in Sources */,
+				E97B9F53292127B500AC42EB /* BookmarkViewController.swift in Sources */,
 				E9A49C82289EC2BB002EA405 /* NaviBarUIView.swift in Sources */,
 				E9DADD0528A8D93A002897FD /* DetailViewController.swift in Sources */,
+				E9A790E62905ACD600594A75 /* TipDetailViewController.swift in Sources */,
 				E936C24F28B26846002DF5D8 /* CookingViewController.swift in Sources */,
 				E9DADD0728A8DD96002897FD /* NaviBackUIView.swift in Sources */,
 				E9A49C07289EBE81002EA405 /* SceneDelegate.swift in Sources */,
 				E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */,
+				E9D5A651290AACD5001051AE /* SettingViewController.swift in Sources */,
+				E9A790E229059BE700594A75 /* TipViewController.swift in Sources */,
 				E9DADD0028A8D299002897FD /* TabbarViewController.swift in Sources */,
+				E97B9F552921507100AC42EB /* MySettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +839,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8Y6GZNH939;
@@ -740,6 +873,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8Y6GZNH939;

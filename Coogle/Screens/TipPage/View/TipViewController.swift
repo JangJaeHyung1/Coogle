@@ -29,18 +29,6 @@ class TipViewController: UIViewController {
     private var categoryArray: [String] = ["재료 보관", "요리 상식"]
     private var tipArray: [String] = ["양파 보관법", "소고기 보관법", "돼지고기 보관법", "당근 보관법"]
     
-    private func setCollectionView(){
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(NaviBarCollectionViewCell.self, forCellWithReuseIdentifier: NaviBarCollectionViewCell.cellId)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +69,19 @@ extension TipViewController {
         tableView.backgroundColor = .white
         //        tableView.register(CommunityHeaderView.self, forHeaderFooterViewReuseIdentifier: CommunityHeaderView.headerViewID)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setCollectionView(){
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(NaviBarCollectionViewCell.self, forCellWithReuseIdentifier: NaviBarCollectionViewCell.cellId)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
     }
     
     private func fetch() {

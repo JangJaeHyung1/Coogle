@@ -123,6 +123,16 @@ extension UITextView {
     }
 }
 
+extension UITextField {
+    func addCharacterSpacing(_ value: Double = -0.03) {
+        let kernValue = self.font!.pointSize * CGFloat(value)
+        guard let text = text, !text.isEmpty else { return }
+        let string = NSMutableAttributedString(string: text)
+        string.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: string.length - 1))
+        attributedText = string
+    }
+}
+
 extension NSAttributedString {
     // 행간
     func withLineSpacing(_ spacing: CGFloat) -> NSAttributedString {
@@ -144,5 +154,17 @@ extension UIViewController {
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+
+open class CustomLabel : UILabel {
+    @IBInspectable open var characterSpacing:CGFloat = 1 {
+        didSet {
+            let attributedString = NSMutableAttributedString(string: self.text!)
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: self.characterSpacing, range: NSRange(location: 0, length: attributedString.length))
+            self.attributedText = attributedString
+        }
+
     }
 }

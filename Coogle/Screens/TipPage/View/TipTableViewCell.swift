@@ -82,5 +82,7 @@ class TipTableViewCell: UITableViewCell {
     }
     func configure(with presentable: String) {
         textLbl.text = "  " + presentable
+        textLbl.textColor = BaseColor.main
+        textLbl.font = BaseFont.normal
     }
 }

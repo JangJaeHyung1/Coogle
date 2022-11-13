@@ -11,6 +11,7 @@ import RxCocoa
 
 class EndCookingViewController: UIViewController {
 
+    private let placeholder = "(선택) 자신이 직접 만들어 본 소세지 야채볶음, 해당 레시피가 마음에 들었나요?"
     private let disposeBag = DisposeBag()
     private var tableView: UITableView!
     var idx: Int = 0
@@ -218,7 +219,7 @@ extension EndCookingViewController {
 
         reviewTextView.rx.didBeginEditing
             .subscribe(onNext:{ [unowned self] res in
-                if(self.reviewTextView.text == "(선택) 자신이 직접 만들어 본 소세지 야채볶음, 해당 레시피가 마음에 들었나요?"){
+                if(self.reviewTextView.text == placeholder){
                     self.reviewTextView.text = nil
                     self.reviewTextView.textColor = BaseColor.main
                 }
@@ -228,7 +229,7 @@ extension EndCookingViewController {
         reviewTextView.rx.didEndEditing
             .subscribe(onNext:{ [unowned self] res in
                 if(self.reviewTextView.text == "" || self.reviewTextView.text == nil){
-                    self.reviewTextView.text = "(선택) 자신이 직접 만들어 본 소세지 야채볶음, 해당 레시피가 마음에 들었나요?"
+                    self.reviewTextView.text = placeholder
                     self.reviewTextView.textColor = BaseColor.placeholder
                 }
             })

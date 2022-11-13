@@ -10,7 +10,10 @@ import RxSwift
 import RxCocoa
 
 class DetailViewController: UIViewController {
-
+    
+    var isBookmark: Bool
+    var canEdit: Bool
+    
     private var tableView1: UITableView!
     private var tableView2: UITableView!
     private var tableView3: UITableView!
@@ -32,6 +35,28 @@ class DetailViewController: UIViewController {
         return view
     }()
     
+    private let bookmarkBtn: UIButton = {
+        let btn = UIButton()
+//        btn.contentEdgeInsets = .init(top: 5, left: 5, bottom: 5, right: 5)
+        btn.setImage(UIImage(named: "bookmark_white"), for: .normal)
+        btn.setImage(UIImage(named: "bookmark_onClick"), for: .selected)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.adjustsImageWhenHighlighted = false
+        //    btn.imageView?.contentMode = .scaleAspectFit
+        return btn
+    }()
+    
+    private let settingBtn: UIButton = {
+        let btn = UIButton()
+//        btn.contentEdgeInsets = .init(top: 5, left: 5, bottom: 5, right: 5)
+        btn.setImage(UIImage(named: "setting_white"), for: .normal)
+        btn.setImage(UIImage(named: "setting_onClick"), for: .selected)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.adjustsImageWhenHighlighted = false
+        //    btn.imageView?.contentMode = .scaleAspectFit
+        return btn
+    }()
+    
     private let imageView: UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: "testImage2")
@@ -42,10 +67,21 @@ class DetailViewController: UIViewController {
         return img
     }()
     
+    private let imageBoardView: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "imageBoardView")
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.isUserInteractionEnabled = true
+        img.contentMode = .scaleAspectFill
+        //img.layer.masksToBounds = true
+        return img
+    }()
+    
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
+        sv.contentInsetAdjustmentBehavior = .never
         return sv
     }()
     
@@ -94,6 +130,20 @@ class DetailViewController: UIViewController {
         lbl.addCharacterSpacing()
         return lbl
     }()
+    
+    private let creatorNameLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.numberOfLines = 1
+        lbl.font = BaseFont.subBold
+        lbl.textColor = BaseColor.sub
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.text = "매콤왕 김매콤"
+        lbl.isUserInteractionEnabled = true
+        lbl.addCharacterSpacing()
+        return lbl
+    }()
+    
     
     private let starImageView: UIImageView = {
         let img = UIImageView()
@@ -206,10 +256,24 @@ class DetailViewController: UIViewController {
         return lbl
     }()
     
+    init(isBookmark: Bool, canEdit: Bool) {
+        self.isBookmark = isBookmark
+        self.canEdit = canEdit
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUp()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.bookmarkBtn.isSelected = self.isBookmark
     }
     
     override func updateViewConstraints() {
@@ -276,6 +340,43 @@ extension DetailViewController {
     }
     
     private func bind() {
+        settingBtn.rx.tap
+            .subscribe(onNext:{ [weak self] _ in
+                guard let self = self else { return }
+                //action sheet title 지정
+                let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                //옵션 초기화
+                
+                let saveAction = UIAlertAction(title: "신고하기", style: .destructive, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                })
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                })
+                
+                if self.canEdit {
+                    let deleteAction = UIAlertAction(title: "수정하기", style: .default, handler: {
+                        (alert: UIAlertAction!) -> Void in
+                    })
+                    
+                    optionMenu.addAction(deleteAction)
+                }
+                
+                optionMenu.addAction(saveAction)
+                optionMenu.addAction(cancelAction)
+               //show
+                self.present(optionMenu, animated: true, completion: nil)
+                
+            })
+            .disposed(by: disposeBag)
+        
+        bookmarkBtn.rx.tap
+            .subscribe(onNext:{ [weak self] _ in
+                guard let self = self else { return }
+                self.bookmarkBtn.isSelected = !self.bookmarkBtn.isSelected
+            })
+            .disposed(by: disposeBag)
+        
         naviView.backBtn.rx.tap
             .subscribe(onNext:{
                 self.navigationController?.popViewController(animated: true)
@@ -292,21 +393,17 @@ extension DetailViewController {
     }
     
     private func setNavi() {
-//                self.navigationItem.title = "<#title#>"
-//                self.navigationController?.navigationBar.prefersLargeTitles = true
-//                self.navigationItem.largeTitleDisplayMode = .always
-//                self.navigationItem.setHidesBackButton(true, animated: true)
-//                self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-//                self.navigationController?.navigationBar.isHidden = false
-//                self.navigationController?.isNavigationBarHidden = true
+        naviView.backBtn.setImage(UIImage(named: "backBtn_white"), for: .normal)
     }
     
     private func addViews() {
         view.addSubview(imageView)
+        view.addSubview(imageBoardView)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(detailTitleLbl)
         contentView.addSubview(subTitleLbl)
+        contentView.addSubview(creatorNameLbl)
         contentView.addSubview(starImageView)
         contentView.addSubview(difficultyBgView)
         difficultyBgView.addSubview(difficultyLbl)
@@ -324,6 +421,8 @@ extension DetailViewController {
         
         
         view.addSubview(naviView)
+        view.addSubview(bookmarkBtn)
+        view.addSubview(settingBtn)
     }
     
     private func setConstraints() {
@@ -332,27 +431,47 @@ extension DetailViewController {
         naviView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         naviView.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        settingBtn.centerYAnchor.constraint(equalTo: naviView.centerYAnchor).isActive = true
+        bookmarkBtn.centerYAnchor.constraint(equalTo: naviView.centerYAnchor).isActive = true
+        
+        settingBtn.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        settingBtn.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        bookmarkBtn.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        bookmarkBtn.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        settingBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        bookmarkBtn.trailingAnchor.constraint(equalTo: settingBtn.leadingAnchor, constant: -10).isActive = true
+        
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 200).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true // 세로 스크롤
         
         imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
+        imageBoardView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imageBoardView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        imageBoardView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        imageBoardView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
         detailTitleLbl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         detailTitleLbl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         
         subTitleLbl.topAnchor.constraint(equalTo: detailTitleLbl.bottomAnchor, constant: 4).isActive = true
         subTitleLbl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        rateNumLbl.topAnchor.constraint(equalTo: subTitleLbl.bottomAnchor,constant: 12)
+        
+        creatorNameLbl.topAnchor.constraint(equalTo: subTitleLbl.bottomAnchor, constant: 10).isActive = true
+        creatorNameLbl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+        rateNumLbl.topAnchor.constraint(equalTo: creatorNameLbl.bottomAnchor,constant: 12)
             .isActive = true
         rateNumLbl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor,constant: 6 - 34).isActive = true
         
@@ -444,3 +563,20 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+
+private let scrollView: UIScrollView = {
+    let sv = UIScrollView()
+    sv.translatesAutoresizingMaskIntoConstraints = false
+    sv.showsVerticalScrollIndicator = false
+    return sv
+}()
+
+private let contentView: UIView = {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
+}()
+
+
+

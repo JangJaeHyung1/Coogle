@@ -84,7 +84,7 @@ extension MainViewController {
         
         tableViewMain.rx.itemSelected
             .subscribe(onNext:{ [unowned self] _ in
-                let nextVC = DetailViewController()
+                let nextVC = DetailViewController(isBookmark: false, canEdit: false)
                 self.navigationController?.pushViewController(
                     nextVC, animated: true)
             })
