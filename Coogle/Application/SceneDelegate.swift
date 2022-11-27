@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
             window?.makeKeyAndVisible()
-            let vc = CreateRecipeThirdViewController()
+            let vc = DetailViewController(isBookmark: false, canEdit: false)
             window?.rootViewController = vc
         }
     }

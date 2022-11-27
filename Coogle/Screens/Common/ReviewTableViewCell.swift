@@ -89,7 +89,6 @@ class ReviewTableViewCell: UITableViewCell {
         view.backgroundColor = BaseColor.progressBarBg
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
-        view.isHidden = true
         return view
     }()
     

@@ -78,9 +78,9 @@ class DetailTableViewCell: UITableViewCell {
     }
     
     private func setConstraints() {
-        cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 50).isActive = true
         cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-        cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -0).isActive = true
+        cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50).isActive = true
         cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -0).isActive = true
         cellView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
