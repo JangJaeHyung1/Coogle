@@ -357,6 +357,18 @@ extension DetailViewController {
                 if self.canEdit {
                     let deleteAction = UIAlertAction(title: "수정하기", style: .default, handler: {
                         (alert: UIAlertAction!) -> Void in
+                        let nextVC = CreateRecipeViewController()
+                        nextVC.recipeName = "소세지 야채 볶음"
+                        nextVC.viewModel.input.firstPageCategory.accept("메인요리")
+                        nextVC.viewModel.input.firstPageDifficulty.accept(0)
+                        nextVC.viewModel.input.firstPageDescription.accept("간단한 밥반찬으로 딱 좋은 소세지 야채볶음!")
+                        nextVC.viewModel.input.secondPageIngredientFrist.accept([["비엔나소세지", "200 g"],["양파", "1 개"], ["파프리카", "1 개"]])
+                        nextVC.viewModel.input.secondPageIngredientSecond.accept([["간장", "1 큰술"],["설탕","1 큰술"]])
+                        let imgData = UIImage(named: "cookImage")?.jpegData(compressionQuality: 0.7)
+                        nextVC.viewModel.input.thirdPageImageData.accept([imgData])
+                        nextVC.viewModel.input.thirdPageDescription.accept(["소세지와 야채는 잘라서 준비해주세요."])
+                        self.navigationController?.pushViewController(
+                            nextVC, animated: true)
                     })
                     
                     optionMenu.addAction(deleteAction)
@@ -526,7 +538,7 @@ extension DetailViewController {
         tableView3.topAnchor.constraint(equalTo: reviewGuideLbl.bottomAnchor, constant: 20).isActive = true
         tableView3.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         tableView3.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        tableView3.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,  constant: -80).isActive = true
+        tableView3.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,  constant: -208).isActive = true
         tableView3.heightAnchor.constraint(equalToConstant: 360).isActive = true
     }
 }
@@ -546,6 +558,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         if tableView.tag == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableViewCell.cellId, for: indexPath) as! ReviewTableViewCell
+            if indexPath.row == 0 {
+                cell.deleteBtn.isHidden = false
+            }
             cell.selectionStyle = .none
             return cell
         } else {
@@ -561,7 +576,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
 }
 
 

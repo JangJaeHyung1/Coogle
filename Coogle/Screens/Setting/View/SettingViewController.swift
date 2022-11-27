@@ -119,6 +119,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let nextVC = MySettingViewController()
             self.navigationController?.pushViewController(
                 nextVC, animated: true)
+        } else {
+            let nextVC = DetailSettingViewController()
+            self.navigationController?.pushViewController(
+                nextVC, animated: true)
         }
     }
     

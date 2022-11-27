@@ -73,6 +73,7 @@ class MySettingViewController: UIViewController {
         lbl.text = "이메일"
         lbl.isUserInteractionEnabled = true
         lbl.addCharacterSpacing()
+        lbl.isHidden = true
         return lbl
     }()
     
@@ -95,6 +96,7 @@ class MySettingViewController: UIViewController {
         txf.smartQuotesType = .no
         txf.smartInsertDeleteType = .no
         txf.spellCheckingType = .no
+        txf.isHidden = true
         return txf
     }()
     
@@ -148,6 +150,7 @@ extension MySettingViewController {
         setNavi()
         addViews()
         setConstraints()
+        hideTextFieldKeyboardWhenTappedBackground()
         bind()
         fetch()
     }

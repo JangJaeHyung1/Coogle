@@ -68,6 +68,16 @@ extension BookmarkViewController {
     }
     
     private func bind() {
+        
+        naviView.searchBtn.rx.tap
+            .subscribe(onNext:{ [unowned self] _ in
+                let nextVC = SearchViewController()
+                self.navigationController?.pushViewController(
+                    nextVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        
         tableViewMain.rx.itemSelected
             .subscribe(onNext:{ [unowned self] _ in
                 let nextVC = DetailViewController(isBookmark: true, canEdit: false)
@@ -80,6 +90,7 @@ extension BookmarkViewController {
     private func setNavi() {
         naviView.titleLbl.text = "북마크"
         naviView.backBtn.isHidden = true
+        naviView.searchBtn.isHidden = false
     }
     
     private func addViews() {
@@ -108,6 +119,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellId, for: indexPath) as! MainTableViewCell
+        cell.bookmarkImg.image = UIImage(named: "bookmark_onClick")
         cell.backgroundColor = .white
         cell.selectionStyle = .none
         return cell

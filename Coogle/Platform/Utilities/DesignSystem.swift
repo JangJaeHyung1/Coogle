@@ -28,6 +28,7 @@ struct BaseFont {
     
     static let title = UIFont(name: notoRegularFont, size: 21)
     static let normal = UIFont(name: notoRegularFont, size: 15)
+    static let tf = UIFont(name: notoRegularFont, size: 14)
     static let subTitle = UIFont(name: notoRegularFont, size: 13)
     static let difficulty = UIFont(name: notoRegularFont, size: 11)
     
@@ -49,5 +50,7 @@ struct BaseColor {
     static let border = UIColor(red: 0.742, green: 0.742, blue: 0.742, alpha: 1)
     static let tabbarTintColor = UIColor(red: 1, green: 0.25, blue: 0.25, alpha: 1)
     static let red = UIColor(red: 1, green: 0.279, blue: 0.279, alpha: 1)
+    static let progressBarBg = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
+    static let progressBar = UIColor(red: 1, green: 0.246, blue: 0.246, alpha: 1)
 }
 

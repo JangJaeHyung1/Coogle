@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
     
     private func setTableView(){
         tableViewMain = UITableView()
+        tableViewMain.contentInset = .init(top: 10, left: 0, bottom: 20, right: 0)
         tableViewMain.dataSource = self
         tableViewMain.delegate = self
         tableViewMain.separatorStyle = .none
@@ -81,6 +82,43 @@ extension MainViewController {
     }
     
     private func bind() {
+        
+        naviView.filterBtn.rx.tap
+            .subscribe(onNext:{ [weak self] res in
+                guard let self = self else { return }
+                //action sheet title 지정
+                let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                //옵션 초기화
+                
+                let descfilter = UIAlertAction(title: "최신순", style: .default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    self.naviView.filterLbl.text = "최신순"
+                })
+                let ascfilter = UIAlertAction(title: "작성순", style: .default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    self.naviView.filterLbl.text = "작성순"
+                })
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                })
+                
+                optionMenu.addAction(ascfilter)
+                optionMenu.addAction(descfilter)
+                optionMenu.addAction(cancelAction)
+               //show
+                self.present(optionMenu, animated: true, completion: nil)
+                
+            })
+            .disposed(by: disposeBag)
+        
+        naviView.searchBtn.rx.tap
+            .subscribe(onNext:{ [unowned self] _ in
+                let nextVC = SearchViewController()
+                self.navigationController?.pushViewController(
+                    nextVC, animated: true)
+            })
+            .disposed(by: disposeBag)
         
         tableViewMain.rx.itemSelected
             .subscribe(onNext:{ [unowned self] _ in

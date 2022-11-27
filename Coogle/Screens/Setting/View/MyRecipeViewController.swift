@@ -32,6 +32,7 @@ class MyRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        view.backgroundColor = .white
     }
     
     init() {
@@ -86,6 +87,14 @@ extension MyRecipeViewController {
         tableViewMain.rx.itemSelected
             .subscribe(onNext:{ [unowned self] _ in
                 let nextVC = DetailViewController(isBookmark: false, canEdit: true)
+                self.navigationController?.pushViewController(
+                    nextVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        creatRecipeBtn.rx.tap
+            .subscribe(onNext:{ [unowned self] _ in
+                let nextVC = CreateRecipeViewController()
                 self.navigationController?.pushViewController(
                     nextVC, animated: true)
             })

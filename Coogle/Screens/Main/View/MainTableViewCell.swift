@@ -76,6 +76,15 @@ class MainTableViewCell: UITableViewCell {
         return lbl
     }()
     
+    let bookmarkImg: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "bookmark")
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.isUserInteractionEnabled = true
+        img.contentMode = .scaleAspectFit
+        return img
+    }()
+    
     
     private let subTitleLbl: UILabel = {
         let lbl = UILabel()
@@ -141,6 +150,7 @@ class MainTableViewCell: UITableViewCell {
         cellView.addSubview(subTitleLbl)
         cellView.addSubview(rateNumLbl)
         cellView.addSubview(difficultyBgView)
+        cellView.addSubview(bookmarkImg)
         difficultyBgView.addSubview(difficultyLbl)
         setConstraints()
     }
@@ -153,15 +163,20 @@ class MainTableViewCell: UITableViewCell {
         shadowView.bottomAnchor.constraint(equalTo: cellView.bottomAnchor).isActive = true
         
         cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
+        cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
-        cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+        cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         cellView.heightAnchor.constraint(equalToConstant: 240).isActive = true
         
         postImage.leadingAnchor.constraint(equalTo: cellView.leadingAnchor).isActive = true
         postImage.topAnchor.constraint(equalTo: cellView.topAnchor).isActive = true
         postImage.trailingAnchor.constraint(equalTo: cellView.trailingAnchor).isActive = true
         postImage.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        
+        bookmarkImg.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10).isActive = true
+        bookmarkImg.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10).isActive = true
+        bookmarkImg.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        bookmarkImg.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         titleLbl.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 16).isActive = true
         titleLbl.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 12).isActive = true

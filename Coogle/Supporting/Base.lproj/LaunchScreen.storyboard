@@ -8,14 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Metropolis-ThinItalic.otf">
-            <string>Metropolis-ThinItalic</string>
-        </array>
-        <array key="NotoSansKR-Thin.otf">
-            <string>NotoSansKR-Thin</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -25,53 +17,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="launchPageImage" translatesAutoresizingMaskIntoConstraints="NO" id="8V1-6x-Kw3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-Ai-wRq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="LaunchPageBackView.png" translatesAutoresizingMaskIntoConstraints="NO" id="wip-Ap-nYd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn4-QM-hpX">
-                                <rect key="frame" x="179.5" y="338" width="174.5" height="58"/>
-                                <string key="text">단계별로 쉽게 만드는
-홈메이드 요리앱</string>
-                                <fontDescription key="fontDescription" name="NotoSansKR-Thin" family="Noto Sans KR" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1e-Rh-56L">
-                                <rect key="frame" x="80" y="258" width="156" height="40"/>
-                                <string key="text">Step-by-step 
-cooking at home</string>
-                                <fontDescription key="fontDescription" name="Metropolis-ThinItalic" family="Metropolis" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenLogo.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZS-Wr-pPx">
-                                <rect key="frame" x="80" y="185" width="125" height="33"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YlU-qf-GYs">
+                                        <rect key="frame" x="177" y="378" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="0Pq-XD-CkZ"/>
+                                            <constraint firstAttribute="width" constant="60" id="L0c-1R-nY3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenLogo.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZS-Wr-pPx">
+                                        <rect key="frame" x="144.5" y="463" width="125" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="UJ4-dp-WBp"/>
+                                            <constraint firstAttribute="height" constant="33" id="yus-ms-zeW"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="UJ4-dp-WBp"/>
-                                    <constraint firstAttribute="height" constant="33" id="yus-ms-zeW"/>
+                                    <constraint firstItem="TZS-Wr-pPx" firstAttribute="centerX" secondItem="d5h-Ai-wRq" secondAttribute="centerX" id="AHE-A3-JKx"/>
+                                    <constraint firstItem="TZS-Wr-pPx" firstAttribute="top" secondItem="YlU-qf-GYs" secondAttribute="bottom" constant="25" id="HOs-Wg-Bcp"/>
+                                    <constraint firstItem="YlU-qf-GYs" firstAttribute="centerY" secondItem="d5h-Ai-wRq" secondAttribute="centerY" constant="-40" id="fju-kL-KAx"/>
+                                    <constraint firstItem="YlU-qf-GYs" firstAttribute="centerX" secondItem="d5h-Ai-wRq" secondAttribute="centerX" id="tFC-OP-XhR"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g4x-fg-L5C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Tn4-QM-hpX" firstAttribute="top" secondItem="r1e-Rh-56L" secondAttribute="bottom" constant="40" id="0Aa-ud-FG2"/>
-                            <constraint firstItem="wip-Ap-nYd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="4Z9-oG-c3H"/>
-                            <constraint firstItem="TZS-Wr-pPx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="60" id="89N-iN-qqf"/>
-                            <constraint firstItem="TZS-Wr-pPx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="185" id="9nX-W0-e3B"/>
-                            <constraint firstAttribute="trailing" secondItem="8V1-6x-Kw3" secondAttribute="trailing" id="Gj5-ra-Ils"/>
-                            <constraint firstItem="8V1-6x-Kw3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Ke6-Ba-Akv"/>
-                            <constraint firstAttribute="bottom" secondItem="8V1-6x-Kw3" secondAttribute="bottom" id="L69-44-woK"/>
-                            <constraint firstItem="wip-Ap-nYd" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SNe-zc-5a2"/>
-                            <constraint firstItem="r1e-Rh-56L" firstAttribute="top" secondItem="TZS-Wr-pPx" secondAttribute="bottom" constant="40" id="TWZ-Yg-vFu"/>
-                            <constraint firstAttribute="trailing" secondItem="wip-Ap-nYd" secondAttribute="trailing" id="gDZ-V4-Xcd"/>
-                            <constraint firstItem="r1e-Rh-56L" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="60" id="gxC-jN-EFc"/>
-                            <constraint firstItem="8V1-6x-Kw3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="o8M-s0-nlb"/>
-                            <constraint firstAttribute="bottom" secondItem="wip-Ap-nYd" secondAttribute="bottom" id="okl-nh-laL"/>
-                            <constraint firstItem="g4x-fg-L5C" firstAttribute="trailing" secondItem="Tn4-QM-hpX" secondAttribute="trailing" constant="60" id="yeo-KM-hnz"/>
+                            <constraint firstItem="d5h-Ai-wRq" firstAttribute="leading" secondItem="g4x-fg-L5C" secondAttribute="leading" id="02g-lZ-26f"/>
+                            <constraint firstAttribute="bottom" secondItem="d5h-Ai-wRq" secondAttribute="bottom" id="BBt-jJ-pKU"/>
+                            <constraint firstItem="g4x-fg-L5C" firstAttribute="trailing" secondItem="d5h-Ai-wRq" secondAttribute="trailing" id="GLF-cl-kYw"/>
+                            <constraint firstItem="d5h-Ai-wRq" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ruQ-Xt-K3S"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -81,9 +60,8 @@ cooking at home</string>
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchPageBackView.png" width="375" height="812"/>
+        <image name="LaunchLogo" width="60" height="60"/>
         <image name="LaunchScreenLogo.png" width="125" height="33"/>
-        <image name="launchPageImage" width="375" height="812"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

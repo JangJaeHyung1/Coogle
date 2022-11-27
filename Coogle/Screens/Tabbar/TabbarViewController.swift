@@ -76,12 +76,17 @@ extension TabbarViewController {
         guard let items = self.tabBar.items else { return }
         
         let itemsImage = ["tab_recipe","tab_tip","tab_bookmark","tab_myProfile"]
-        
+        let selectedImages = ["tab_recipe_on","tab_tip_on","tab_bookmark_on","tab_myProfile_on"]
         for x in 0...3 {
             let image = UIImage(named: itemsImage[x])?.resizedImage(Size: CGSize(width: 24, height: 24))
-            items[x].image = image
+            
+            let selectedImage = UIImage(named: selectedImages[x])?.resizedImage(Size: CGSize(width: 24, height: 24))
+            
+            items[x].image = image?.withRenderingMode(.alwaysOriginal)
+            items[x].selectedImage = selectedImage?.withRenderingMode(.alwaysOriginal)
+            
         }
-        
+        self.tabBar.unselectedItemTintColor = BaseColor.main
         self.tabBar.tintColor = BaseColor.tabbarTintColor
     }
 }

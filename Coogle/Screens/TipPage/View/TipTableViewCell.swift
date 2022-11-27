@@ -30,7 +30,7 @@ class TipTableViewCell: UITableViewCell {
         return lbl
     }()
     
-    private let accessoryImg: UIImageView = {
+    let accessoryImg: UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: "accessory_tip")
         img.translatesAutoresizingMaskIntoConstraints = false

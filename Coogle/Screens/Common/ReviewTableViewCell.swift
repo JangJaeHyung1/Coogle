@@ -23,7 +23,7 @@ class ReviewTableViewCell: UITableViewCell {
     let nickNameLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.numberOfLines = 0
+        lbl.numberOfLines = 1
         lbl.textColor = BaseColor.sub
         lbl.lineBreakMode = .byWordWrapping
         lbl.text = "독산동 칼잡이"
@@ -31,6 +31,21 @@ class ReviewTableViewCell: UITableViewCell {
         lbl.font = BaseFont.bold
         lbl.addCharacterSpacing()
         return lbl
+    }()
+    
+    let deleteBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("삭제", for: .normal)
+        btn.setTitleColor(BaseColor.tabbarTintColor, for: .normal)
+        btn.backgroundColor = BaseColor.difficultyBg
+        btn.titleLabel?.font = BaseFont.difficulty
+        btn.contentEdgeInsets = .init(top: 5, left: 5, bottom: 5, right: 5)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.adjustsImageWhenHighlighted = false
+        btn.layer.cornerRadius = 10
+        btn.titleLabel?.addCharacterSpacing()
+        btn.isHidden = true
+        return btn
     }()
     
     let starImage: UIImageView = {
@@ -69,6 +84,15 @@ class ReviewTableViewCell: UITableViewCell {
         return lbl
     }()
     
+    private let bottomLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = BaseColor.progressBarBg
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        view.isHidden = true
+        return view
+    }()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -91,6 +115,8 @@ class ReviewTableViewCell: UITableViewCell {
         cellView.addSubview(starImage)
         cellView.addSubview(dateLbl)
         cellView.addSubview(cmtLbl)
+        cellView.addSubview(deleteBtn)
+        cellView.addSubview(bottomLine)
         setConstraints()
     }
     
@@ -102,6 +128,13 @@ class ReviewTableViewCell: UITableViewCell {
         
         nickNameLbl.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10).isActive = true
         nickNameLbl.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 20).isActive = true
+        nickNameLbl.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        nickNameLbl.trailingAnchor.constraint(equalTo: deleteBtn.leadingAnchor, constant: -10).isActive = true
+        
+        deleteBtn.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -20).isActive = true
+        deleteBtn.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        deleteBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        deleteBtn.centerYAnchor.constraint(equalTo: nickNameLbl.centerYAnchor).isActive = true
         
         starImage.widthAnchor.constraint(equalToConstant: 70).isActive = true
         starImage.heightAnchor.constraint(equalToConstant: 14).isActive = true
@@ -114,5 +147,10 @@ class ReviewTableViewCell: UITableViewCell {
         cmtLbl.leadingAnchor.constraint(equalTo: starImage.leadingAnchor).isActive = true
         cmtLbl.topAnchor.constraint(equalTo: starImage.bottomAnchor, constant: 20).isActive = true
         cmtLbl.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -30).isActive = true
+        
+        bottomLine.leadingAnchor.constraint(equalTo: cellView.leadingAnchor).isActive = true
+        bottomLine.trailingAnchor.constraint(equalTo: cellView.trailingAnchor).isActive = true
+        bottomLine.heightAnchor.constraint(equalToConstant: 0.6).isActive = true
+        bottomLine.bottomAnchor.constraint(equalTo: cellView.bottomAnchor).isActive = true
     }
 }

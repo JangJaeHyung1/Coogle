@@ -34,7 +34,7 @@ class NaviBarUIView: UIView {
         return lbl
     }()
     
-    private let searchBtn: UIButton = {
+    let searchBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "searchIcon"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ class NaviBarUIView: UIView {
         return btn
     }()
     
-    private let filterBtn: UIButton = {
+    let filterBtn: UIButton = {
         let btn = UIButton()
         btn.contentEdgeInsets = .init(top: 4, left: 10, bottom: 10, right: 10)
         btn.setImage(UIImage(named: "filterIcon")?.resizedImage(Size: CGSize(width: 10, height: 10)), for: .normal)
@@ -53,14 +53,14 @@ class NaviBarUIView: UIView {
         return btn
     }()
     
-    private let filterLbl: UILabel = {
+    let filterLbl: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.numberOfLines = 0
         lbl.font = BaseFont.subTitle
         lbl.textColor = BaseColor.main
         lbl.lineBreakMode = .byWordWrapping
-        lbl.text = "최신 순"
+        lbl.text = "최신순"
         lbl.isUserInteractionEnabled = true
         lbl.addCharacterSpacing()
         return lbl
