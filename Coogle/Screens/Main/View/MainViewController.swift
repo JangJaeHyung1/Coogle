@@ -98,11 +98,16 @@ extension MainViewController {
                     (alert: UIAlertAction!) -> Void in
                     self.naviView.filterLbl.text = "작성순"
                 })
+                let ratefilter = UIAlertAction(title: "평점순", style: .default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    self.naviView.filterLbl.text = "평점순"
+                })
                 
                 let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
                     (alert: UIAlertAction!) -> Void in
                 })
                 
+                optionMenu.addAction(ratefilter)
                 optionMenu.addAction(ascfilter)
                 optionMenu.addAction(descfilter)
                 optionMenu.addAction(cancelAction)

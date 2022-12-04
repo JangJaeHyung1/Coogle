@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E927933C28BFAE39007BD246 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927933B28BFAE39007BD246 /* ReviewTableViewCell.swift */; };
+		E93688262923C0E600C0FFCC /* CreateRecipeSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93688252923C0E600C0FFCC /* CreateRecipeSecondViewController.swift */; };
+		E93688282923C3F200C0FFCC /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93688272923C3F200C0FFCC /* IngredientsTableViewCell.swift */; };
+		E936882A2923C49D00C0FFCC /* CustomTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93688292923C49D00C0FFCC /* CustomTableHeaderView.swift */; };
+		E936882C2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936882B2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift */; };
 		E936C24F28B26846002DF5D8 /* CookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936C24E28B26846002DF5D8 /* CookingViewController.swift */; };
 		E945BD0728AE4ECB00CBC06F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */; };
 		E97B9F432921173700AC42EB /* LaunchScreenLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */; };
@@ -20,6 +24,7 @@
 		E97B9F53292127B500AC42EB /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9F52292127B500AC42EB /* BookmarkViewController.swift */; };
 		E97B9F552921507100AC42EB /* MySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9F542921507100AC42EB /* MySettingViewController.swift */; };
 		E97D37CA28A131650016E582 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D37C928A131650016E582 /* MainTableViewCell.swift */; };
+		E9857BDE292D0B330043273D /* DetailSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9857BDD292D0B330043273D /* DetailSettingViewController.swift */; };
 		E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F12D129003A0800F5B784 /* EndCookingViewController.swift */; };
 		E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C04289EBE81002EA405 /* AppDelegate.swift */; };
 		E9A49C07289EBE81002EA405 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C06289EBE81002EA405 /* SceneDelegate.swift */; };
@@ -78,15 +83,37 @@
 		E9A790E229059BE700594A75 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A790E129059BE700594A75 /* TipViewController.swift */; };
 		E9A790E42905A95B00594A75 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A790E32905A95B00594A75 /* TipTableViewCell.swift */; };
 		E9A790E62905ACD600594A75 /* TipDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A790E52905ACD600594A75 /* TipDetailViewController.swift */; };
+		E9A9ED0429250345001441A2 /* CreateRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9ED0329250345001441A2 /* CreateRecipeViewModel.swift */; };
+		E9A9ED0629254E03001441A2 /* CreateRecipeThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9ED0529254E03001441A2 /* CreateRecipeThirdViewController.swift */; };
+		E9B4E4C329229ED300FB4EB7 /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4E4C229229ED300FB4EB7 /* CreateRecipeViewController.swift */; };
+		E9B4E4C52922A5A500FB4EB7 /* BaseUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4E4C42922A5A500FB4EB7 /* BaseUIComponent.swift */; };
 		E9D5A651290AACD5001051AE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5A650290AACD5001051AE /* SettingViewController.swift */; };
 		E9DADD0028A8D299002897FD /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DADCFF28A8D299002897FD /* TabbarViewController.swift */; };
 		E9DADD0528A8D93A002897FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DADD0428A8D93A002897FD /* DetailViewController.swift */; };
 		E9DADD0728A8DD96002897FD /* NaviBackUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DADD0628A8DD96002897FD /* NaviBackUIView.swift */; };
 		E9ED34AC28A028BD008CA171 /* NaviBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED34AB28A028BD008CA171 /* NaviBarCollectionViewCell.swift */; };
+		E9F7D1862927A8410015C2B7 /* StepRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F7D1852927A8410015C2B7 /* StepRecipeTableViewCell.swift */; };
+		E9F7D1882927BA600015C2B7 /* PhotoPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F7D1872927BA600015C2B7 /* PhotoPermissionManager.swift */; };
+		E9F7D1952927BD110015C2B7 /* RxImagePickerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F7D1922927BD110015C2B7 /* RxImagePickerDelegateProxy.swift */; };
+		E9F7D1962927BD110015C2B7 /* UIImagePickerViewController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F7D1932927BD110015C2B7 /* UIImagePickerViewController+RxCreate.swift */; };
+		E9F7D1972927BD110015C2B7 /* UIImagePickerViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F7D1942927BD110015C2B7 /* UIImagePickerViewController+Rx.swift */; };
+		E9FC19B2293327D10028DEF3 /* LaunchLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9FC19AF293327D10028DEF3 /* LaunchLogo@2x.png */; };
+		E9FC19B3293327D10028DEF3 /* LaunchLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9FC19B0293327D10028DEF3 /* LaunchLogo@3x.png */; };
+		E9FC19B4293327D10028DEF3 /* LaunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9FC19B1293327D10028DEF3 /* LaunchLogo.png */; };
+		E9FC19B6293328B80028DEF3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC19B5293328B80028DEF3 /* SearchViewController.swift */; };
+		E9FC19B8293355AD0028DEF3 /* DetailFirstHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC19B7293355AD0028DEF3 /* DetailFirstHeaderView.swift */; };
+		E9FC19BC2933562A0028DEF3 /* DetailFristTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC19BB2933562A0028DEF3 /* DetailFristTableViewCell.swift */; };
+		E9FC19BE2933563B0028DEF3 /* DetailIngredientHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC19BD2933563B0028DEF3 /* DetailIngredientHeaderView.swift */; };
+		E9FC19C0293357A90028DEF3 /* DetailRecipeFirstInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC19BF293357A90028DEF3 /* DetailRecipeFirstInfo.swift */; };
+		E9FC19C429335E040028DEF3 /* ReviewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FC19C329335E040028DEF3 /* ReviewHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E927933B28BFAE39007BD246 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		E93688252923C0E600C0FFCC /* CreateRecipeSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeSecondViewController.swift; sourceTree = "<group>"; };
+		E93688272923C3F200C0FFCC /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
+		E93688292923C49D00C0FFCC /* CustomTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableHeaderView.swift; sourceTree = "<group>"; };
+		E936882B2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLastTableViewCell.swift; sourceTree = "<group>"; };
 		E936C24E28B26846002DF5D8 /* CookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewController.swift; sourceTree = "<group>"; };
 		E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenLogo@2x.png"; sourceTree = "<group>"; };
@@ -99,6 +126,7 @@
 		E97B9F52292127B500AC42EB /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		E97B9F542921507100AC42EB /* MySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingViewController.swift; sourceTree = "<group>"; };
 		E97D37C928A131650016E582 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		E9857BDD292D0B330043273D /* DetailSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingViewController.swift; sourceTree = "<group>"; };
 		E98F12D129003A0800F5B784 /* EndCookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCookingViewController.swift; sourceTree = "<group>"; };
 		E9A49C01289EBE81002EA405 /* Coogle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coogle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A49C04289EBE81002EA405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,11 +184,29 @@
 		E9A790E129059BE700594A75 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		E9A790E32905A95B00594A75 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
 		E9A790E52905ACD600594A75 /* TipDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailViewController.swift; sourceTree = "<group>"; };
+		E9A9ED0329250345001441A2 /* CreateRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewModel.swift; sourceTree = "<group>"; };
+		E9A9ED0529254E03001441A2 /* CreateRecipeThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeThirdViewController.swift; sourceTree = "<group>"; };
+		E9B4E4C229229ED300FB4EB7 /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
+		E9B4E4C42922A5A500FB4EB7 /* BaseUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIComponent.swift; sourceTree = "<group>"; };
 		E9D5A650290AACD5001051AE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E9DADCFF28A8D299002897FD /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		E9DADD0428A8D93A002897FD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E9DADD0628A8DD96002897FD /* NaviBackUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBackUIView.swift; sourceTree = "<group>"; };
 		E9ED34AB28A028BD008CA171 /* NaviBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9F7D1852927A8410015C2B7 /* StepRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		E9F7D1872927BA600015C2B7 /* PhotoPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPermissionManager.swift; sourceTree = "<group>"; };
+		E9F7D1922927BD110015C2B7 /* RxImagePickerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxImagePickerDelegateProxy.swift; sourceTree = "<group>"; };
+		E9F7D1932927BD110015C2B7 /* UIImagePickerViewController+RxCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerViewController+RxCreate.swift"; sourceTree = "<group>"; };
+		E9F7D1942927BD110015C2B7 /* UIImagePickerViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerViewController+Rx.swift"; sourceTree = "<group>"; };
+		E9FC19AF293327D10028DEF3 /* LaunchLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchLogo@2x.png"; sourceTree = "<group>"; };
+		E9FC19B0293327D10028DEF3 /* LaunchLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchLogo@3x.png"; sourceTree = "<group>"; };
+		E9FC19B1293327D10028DEF3 /* LaunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchLogo.png; sourceTree = "<group>"; };
+		E9FC19B5293328B80028DEF3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E9FC19B7293355AD0028DEF3 /* DetailFirstHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFirstHeaderView.swift; sourceTree = "<group>"; };
+		E9FC19BB2933562A0028DEF3 /* DetailFristTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFristTableViewCell.swift; sourceTree = "<group>"; };
+		E9FC19BD2933563B0028DEF3 /* DetailIngredientHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIngredientHeaderView.swift; sourceTree = "<group>"; };
+		E9FC19BF293357A90028DEF3 /* DetailRecipeFirstInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeFirstInfo.swift; sourceTree = "<group>"; };
+		E9FC19C329335E040028DEF3 /* ReviewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +257,9 @@
 				E97B9F412921173700AC42EB /* LaunchScreenLogo.png */,
 				E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */,
 				E97B9F422921173700AC42EB /* LaunchScreenLogo@3x.png */,
+				E9FC19B1293327D10028DEF3 /* LaunchLogo.png */,
+				E9FC19AF293327D10028DEF3 /* LaunchLogo@2x.png */,
+				E9FC19B0293327D10028DEF3 /* LaunchLogo@3x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -300,6 +349,7 @@
 		E9A49C1B289EBF12002EA405 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E9B4E4BF29229E9F00FB4EB7 /* CreateRecipe */,
 				E9A49C1D289EBF6D002EA405 /* Main */,
 				E936C24B28B265E5002DF5D8 /* Cooking */,
 				E9DADD0128A8D90C002897FD /* Detail */,
@@ -336,6 +386,7 @@
 				E9A49C08289EBE81002EA405 /* MainViewController.swift */,
 				E9ED34AB28A028BD008CA171 /* NaviBarCollectionViewCell.swift */,
 				E97D37C928A131650016E582 /* MainTableViewCell.swift */,
+				E9FC19B5293328B80028DEF3 /* SearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -441,8 +492,11 @@
 		E9A49C83289EC2EC002EA405 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E9F7D1912927BD060015C2B7 /* ImagePicker */,
 				E9A49C86289EC381002EA405 /* DesignSystem.swift */,
 				E9A49C88289EC43C002EA405 /* Extension.swift */,
+				E9B4E4C42922A5A500FB4EB7 /* BaseUIComponent.swift */,
+				E9F7D1872927BA600015C2B7 /* PhotoPermissionManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -457,6 +511,7 @@
 		E9A49C85289EC307002EA405 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9FC19BF293357A90028DEF3 /* DetailRecipeFirstInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +542,37 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E9B4E4BF29229E9F00FB4EB7 /* CreateRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4E4C129229EB100FB4EB7 /* View */,
+				E9B4E4C029229EAB00FB4EB7 /* ViewModel */,
+			);
+			path = CreateRecipe;
+			sourceTree = "<group>";
+		};
+		E9B4E4C029229EAB00FB4EB7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9A9ED0329250345001441A2 /* CreateRecipeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9B4E4C129229EB100FB4EB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4E4C229229ED300FB4EB7 /* CreateRecipeViewController.swift */,
+				E93688252923C0E600C0FFCC /* CreateRecipeSecondViewController.swift */,
+				E9A9ED0529254E03001441A2 /* CreateRecipeThirdViewController.swift */,
+				E93688272923C3F200C0FFCC /* IngredientsTableViewCell.swift */,
+				E93688292923C49D00C0FFCC /* CustomTableHeaderView.swift */,
+				E936882B2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift */,
+				E9F7D1852927A8410015C2B7 /* StepRecipeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E9D5A64D290AACA3001051AE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +588,7 @@
 				E9D5A650290AACD5001051AE /* SettingViewController.swift */,
 				E97B9F4D29211D1300AC42EB /* MyRecipeViewController.swift */,
 				E97B9F542921507100AC42EB /* MySettingViewController.swift */,
+				E9857BDD292D0B330043273D /* DetailSettingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -542,8 +629,22 @@
 			children = (
 				E9DADD0428A8D93A002897FD /* DetailViewController.swift */,
 				E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */,
+				E9FC19B7293355AD0028DEF3 /* DetailFirstHeaderView.swift */,
+				E9FC19BB2933562A0028DEF3 /* DetailFristTableViewCell.swift */,
+				E9FC19BD2933563B0028DEF3 /* DetailIngredientHeaderView.swift */,
+				E9FC19C329335E040028DEF3 /* ReviewHeaderView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E9F7D1912927BD060015C2B7 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E9F7D1922927BD110015C2B7 /* RxImagePickerDelegateProxy.swift */,
+				E9F7D1942927BD110015C2B7 /* UIImagePickerViewController+Rx.swift */,
+				E9F7D1932927BD110015C2B7 /* UIImagePickerViewController+RxCreate.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -617,7 +718,9 @@
 				E9A49C5D289EC0C0002EA405 /* Metropolis-BlackItalic.otf in Resources */,
 				E9A49C54289EC0C0002EA405 /* Metropolis-Light.otf in Resources */,
 				E9A49C67289EC0CB002EA405 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
+				E9FC19B4293327D10028DEF3 /* LaunchLogo.png in Resources */,
 				E9A49C59289EC0C0002EA405 /* Metropolis-RegularItalic.otf in Resources */,
+				E9FC19B2293327D10028DEF3 /* LaunchLogo@2x.png in Resources */,
 				E9A49C5B289EC0C0002EA405 /* Metropolis-Black.otf in Resources */,
 				E9A49C53289EC0C0002EA405 /* Metropolis-Thin.otf in Resources */,
 				E9A49C6F289EC0CB002EA405 /* SF-Pro-Text-Thin.otf in Resources */,
@@ -662,6 +765,7 @@
 				E9A49C57289EC0C0002EA405 /* Metropolis-ExtraLightItalic.otf in Resources */,
 				E97B9F452921173700AC42EB /* LaunchScreenLogo@3x.png in Resources */,
 				E97B9F4B292117C400AC42EB /* LaunchPageBackView@2x.png in Resources */,
+				E9FC19B3293327D10028DEF3 /* LaunchLogo@3x.png in Resources */,
 				E9A49C71289EC0CB002EA405 /* SF-Pro-Text-Ultralight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,24 +781,44 @@
 				E9A49C87289EC381002EA405 /* DesignSystem.swift in Sources */,
 				E97D37CA28A131650016E582 /* MainTableViewCell.swift in Sources */,
 				E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */,
+				E9F7D1862927A8410015C2B7 /* StepRecipeTableViewCell.swift in Sources */,
+				E9FC19C429335E040028DEF3 /* ReviewHeaderView.swift in Sources */,
 				E9A49C89289EC43C002EA405 /* Extension.swift in Sources */,
 				E927933C28BFAE39007BD246 /* ReviewTableViewCell.swift in Sources */,
+				E9A9ED0429250345001441A2 /* CreateRecipeViewModel.swift in Sources */,
 				E9A790E42905A95B00594A75 /* TipTableViewCell.swift in Sources */,
 				E9ED34AC28A028BD008CA171 /* NaviBarCollectionViewCell.swift in Sources */,
+				E9FC19B8293355AD0028DEF3 /* DetailFirstHeaderView.swift in Sources */,
 				E97B9F4E29211D1300AC42EB /* MyRecipeViewController.swift in Sources */,
 				E945BD0728AE4ECB00CBC06F /* DetailTableViewCell.swift in Sources */,
 				E97B9F53292127B500AC42EB /* BookmarkViewController.swift in Sources */,
 				E9A49C82289EC2BB002EA405 /* NaviBarUIView.swift in Sources */,
+				E936882A2923C49D00C0FFCC /* CustomTableHeaderView.swift in Sources */,
 				E9DADD0528A8D93A002897FD /* DetailViewController.swift in Sources */,
+				E9F7D1952927BD110015C2B7 /* RxImagePickerDelegateProxy.swift in Sources */,
+				E9FC19BE2933563B0028DEF3 /* DetailIngredientHeaderView.swift in Sources */,
+				E9F7D1882927BA600015C2B7 /* PhotoPermissionManager.swift in Sources */,
 				E9A790E62905ACD600594A75 /* TipDetailViewController.swift in Sources */,
 				E936C24F28B26846002DF5D8 /* CookingViewController.swift in Sources */,
+				E9FC19C0293357A90028DEF3 /* DetailRecipeFirstInfo.swift in Sources */,
+				E9857BDE292D0B330043273D /* DetailSettingViewController.swift in Sources */,
+				E9FC19BC2933562A0028DEF3 /* DetailFristTableViewCell.swift in Sources */,
+				E9B4E4C329229ED300FB4EB7 /* CreateRecipeViewController.swift in Sources */,
 				E9DADD0728A8DD96002897FD /* NaviBackUIView.swift in Sources */,
 				E9A49C07289EBE81002EA405 /* SceneDelegate.swift in Sources */,
 				E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */,
 				E9D5A651290AACD5001051AE /* SettingViewController.swift in Sources */,
+				E9FC19B6293328B80028DEF3 /* SearchViewController.swift in Sources */,
+				E93688282923C3F200C0FFCC /* IngredientsTableViewCell.swift in Sources */,
+				E93688262923C0E600C0FFCC /* CreateRecipeSecondViewController.swift in Sources */,
+				E9B4E4C52922A5A500FB4EB7 /* BaseUIComponent.swift in Sources */,
 				E9A790E229059BE700594A75 /* TipViewController.swift in Sources */,
+				E9A9ED0629254E03001441A2 /* CreateRecipeThirdViewController.swift in Sources */,
 				E9DADD0028A8D299002897FD /* TabbarViewController.swift in Sources */,
+				E9F7D1962927BD110015C2B7 /* UIImagePickerViewController+RxCreate.swift in Sources */,
 				E97B9F552921507100AC42EB /* MySettingViewController.swift in Sources */,
+				E9F7D1972927BD110015C2B7 /* UIImagePickerViewController+Rx.swift in Sources */,
+				E936882C2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,11 +965,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 221204;
 				DEVELOPMENT_TEAM = 8Y6GZNH939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Coogle/Supporting/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Coogle;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용 권한을 허락하시겠습니까?";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "음성 인식 권한을 허락하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -875,11 +1001,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 221204;
 				DEVELOPMENT_TEAM = 8Y6GZNH939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Coogle/Supporting/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Coogle;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 사용 권한을 허락하시겠습니까?";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "음성 인식 권한을 허락하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

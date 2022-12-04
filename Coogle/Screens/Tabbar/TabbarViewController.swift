@@ -26,8 +26,13 @@ class TabbarViewController: UITabBarController  {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tabBar.frame.size.height = 88
-        tabBar.frame.origin.y = view.frame.height - 88
+        if view.safeAreaInsets.bottom > 10 {
+            tabBar.frame.size.height = 88
+            tabBar.frame.origin.y = view.frame.height - 88
+        } else {
+            tabBar.frame.size.height = 54
+            tabBar.frame.origin.y = view.frame.height - 54
+        }
     }
     
 }
@@ -88,35 +93,5 @@ extension TabbarViewController {
         }
         self.tabBar.unselectedItemTintColor = BaseColor.main
         self.tabBar.tintColor = BaseColor.tabbarTintColor
-    }
-}
-
-
-class SecondViewController: UIViewController {
-    override func viewWillLayoutSubviews() {
-        view.layoutMargins = .zero
-        view.safeAreaLayoutGuide.accessibilityFrame = .zero
-        view.insetsLayoutMarginsFromSafeArea = false
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.setHidesBackButton(true, animated: true)
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-        
-    }
-}
-
-class ThirdViewController: UIViewController {
-    override func viewWillLayoutSubviews() {
-        view.layoutMargins = .zero
-        view.safeAreaLayoutGuide.accessibilityFrame = .zero
-        view.insetsLayoutMarginsFromSafeArea = false
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.setHidesBackButton(true, animated: true)
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .yellow
     }
 }

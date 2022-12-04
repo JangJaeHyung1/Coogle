@@ -125,6 +125,13 @@ class CookingViewController: UIViewController {
         return btn
     }()
     
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -256,9 +263,10 @@ extension CookingViewController {
         view.addSubview(imageView)
         view.addSubview(stepTitleLbl)
         view.addSubview(stepNumLbl)
-        view.addSubview(contentLbl)
         view.addSubview(subLbl)
         view.addSubview(nextBtn)
+        view.addSubview(contentView)
+        contentView.addSubview(contentLbl)
     }
     
     private func setConstraints() {
@@ -278,16 +286,26 @@ extension CookingViewController {
         stepNumLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         stepNumLbl.centerYAnchor.constraint(equalTo: stepTitleLbl.centerYAnchor).isActive = true
         
-        contentLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        contentLbl.topAnchor.constraint(equalTo: stepTitleLbl.bottomAnchor, constant: 50).isActive = true
+        contentView.topAnchor.constraint(equalTo: stepNumLbl.bottomAnchor,constant: 0).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: subLbl.topAnchor, constant: -8).isActive = true
+        
+        contentLbl.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        contentLbl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+        contentLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        contentLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        contentLbl.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        contentLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         subLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        subLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45).isActive = true
+        subLbl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12).isActive = true
         
         nextBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
         nextBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         nextBtn.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        nextBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45).isActive = true
+        nextBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12).isActive = true
     }
 }
 

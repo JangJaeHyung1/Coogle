@@ -161,7 +161,6 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.bookmarkBtn.isSelected = self.isBookmark
         self.secondBookmarkBtn.isSelected = self.isBookmark
-        
     }
 }
 
@@ -186,8 +185,8 @@ extension DetailViewController {
         
         tableView.register(ReviewTableViewCell.self, forCellReuseIdentifier: ReviewTableViewCell.cellId)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .red
-        tableView.contentInset = .init(top: 0, left: 0, bottom: 80, right: 0)
+        tableView.backgroundColor = .white
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 90, right: 0)
         tableView.contentInsetAdjustmentBehavior = .never
         let headerView = DetailFirstHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         headerView.imageView.image = UIImage(named: "testImage2")
@@ -386,7 +385,7 @@ extension DetailViewController {
         nextBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
         nextBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         nextBtn.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        nextBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45).isActive = true
+        nextBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12).isActive = true
     }
 }
 
@@ -443,7 +442,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
         } else if section == 2 {
             return menuArray2.count
         } else {
-            return 20
+            return 10
         }
     }
     
@@ -498,7 +497,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? DetailFirstHeaderView else { return }
         header.scrollViewDidScroll(scrollView: tableView)
-        print(scrollView.contentOffset.y)
+//        print(scrollView.contentOffset.y)
         
         if scrollView.contentOffset.y < 125 {
             setOpacity(0)
