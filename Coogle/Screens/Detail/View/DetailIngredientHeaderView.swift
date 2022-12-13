@@ -27,6 +27,20 @@ class DetailIngredientHeaderView: UIView {
         lbl.addCharacterSpacing()
         return lbl
     }()
+    
+    let subTitleLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.numberOfLines = 0
+        lbl.textColor = BaseColor.sub
+        lbl.font = BaseFont.subTitle
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.text = "1인분 기준"
+        lbl.isUserInteractionEnabled = true
+        lbl.isHidden = true
+        lbl.addCharacterSpacing()
+        return lbl
+    }()
   
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +54,7 @@ class DetailIngredientHeaderView: UIView {
     private func setupView() {
         addSubview(contentView)
         contentView.addSubview(recipeNameLbl)
-        
+        contentView.addSubview(subTitleLbl)
         setConstraints()
     }
 
@@ -56,6 +70,9 @@ class DetailIngredientHeaderView: UIView {
         recipeNameLbl.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
         recipeNameLbl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50).isActive = true
         recipeNameLbl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        subTitleLbl.bottomAnchor.constraint(equalTo: recipeNameLbl.bottomAnchor).isActive = true
+        subTitleLbl.leadingAnchor.constraint(equalTo: recipeNameLbl.trailingAnchor, constant: 10).isActive = true
     }
 
 

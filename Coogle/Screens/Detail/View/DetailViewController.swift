@@ -312,7 +312,7 @@ extension DetailViewController {
         
         nextBtn.rx.tap
             .subscribe(onNext:{
-                let nextVC = CookingViewController(idx: 1)
+                let nextVC = PagerViewController(limitPageNum: 10)
                 self.navigationController?.pushViewController(
                     nextVC, animated: true)
             })
@@ -421,6 +421,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
             return headerView
         } else if section == 1 {
             let headerView = DetailIngredientHeaderView()
+            headerView.subTitleLbl.isHidden = false
             headerView.recipeNameLbl.text = "메인 재료"
             return headerView
         } else if section == 2 {

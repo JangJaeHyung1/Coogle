@@ -16,11 +16,22 @@ class DetailSettingViewController: UIViewController {
         view.isUserInteractionEnabled = true
         return view
     }()
+    private let versionLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.numberOfLines = 0
+        lbl.textColor = .systemGray
+        lbl.font = .systemFont(ofSize: 16)
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textAlignment = .center
+        lbl.text = "ver 1.0.0"
+        lbl.isUserInteractionEnabled = true
+        return lbl
+    }()
     
     private var tableView: UITableView!
     private var tipArray: [String] = ["정책",
-                                      "약관",
-                                      "버전 : 1.0.0"]
+                                      "약관"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +92,7 @@ extension DetailSettingViewController {
     private func addViews() {
         view.addSubview(naviView)
         view.addSubview(tableView)
+        view.addSubview(versionLbl)
     }
     
     private func setConstraints() {
@@ -93,7 +105,10 @@ extension DetailSettingViewController {
             tableView.topAnchor.constraint(equalTo: naviView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            versionLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            versionLbl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
 }

@@ -18,6 +18,7 @@ class CreateRecipeViewModel {
     struct Input {
         let firstPageRecipeName = BehaviorRelay<String>(value: "")
         let firstPageCategory = BehaviorRelay<String>(value: "")
+        let firstPagePerson = BehaviorRelay<String>(value: "")
         let firstPageDescription = BehaviorRelay<String>(value: "")
         let firstPageDifficulty = BehaviorRelay<Int>(value: -1)
         
@@ -56,11 +57,11 @@ class CreateRecipeViewModel {
             } onDisposed: {
             }.disposed(by: disposeBag)
         
-        Observable.combineLatest(input.firstPageRecipeName, input.firstPageCategory, input.firstPageDescription, input.firstPageDifficulty)
+        Observable.combineLatest(input.firstPageRecipeName, input.firstPageCategory, input.firstPageDescription, input.firstPageDifficulty, input.firstPagePerson)
         //            .debug()
-            .subscribe { [weak self] (recipeName, category, discript, difficulty) in
+            .subscribe { [weak self] (recipeName, category, discript, difficulty, person) in
                 guard let self = self else { return }
-                if recipeName.count > 0 && category.count > 0 && discript.count > 0 && difficulty > -1 {
+                if recipeName.count > 0 && category.count > 0 && discript.count > 0 && difficulty > -1 && person.count > 0 {
                     self.output.firstCompleted.accept(true)
                 } else {
                     self.output.firstCompleted.accept(false)

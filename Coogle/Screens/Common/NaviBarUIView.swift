@@ -45,11 +45,12 @@ class NaviBarUIView: UIView {
     
     let filterBtn: UIButton = {
         let btn = UIButton()
-        btn.contentEdgeInsets = .init(top: 4, left: 10, bottom: 10, right: 10)
+        btn.contentEdgeInsets = .init(top: 4, left: 60, bottom: 10, right: 10)
         btn.setImage(UIImage(named: "filterIcon")?.resizedImage(Size: CGSize(width: 10, height: 10)), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.adjustsImageWhenHighlighted = false
         btn.imageView?.contentMode = .scaleAspectFit
+//        btn.backgroundColor = .red
         return btn
     }()
     
@@ -107,6 +108,6 @@ class NaviBarUIView: UIView {
         filterBtn.trailingAnchor.constraint(equalTo: searchBtn.leadingAnchor, constant: -4).isActive = true
         
         filterLbl.centerYAnchor.constraint(equalTo: naviView.centerYAnchor).isActive = true
-        filterLbl.trailingAnchor.constraint(equalTo: filterBtn.leadingAnchor, constant: 4).isActive = true
+        filterLbl.trailingAnchor.constraint(equalTo: filterBtn.leadingAnchor, constant: 54).isActive = true
     }
 }

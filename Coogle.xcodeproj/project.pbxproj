@@ -26,6 +26,7 @@
 		E97D37CA28A131650016E582 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D37C928A131650016E582 /* MainTableViewCell.swift */; };
 		E9857BDE292D0B330043273D /* DetailSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9857BDD292D0B330043273D /* DetailSettingViewController.swift */; };
 		E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F12D129003A0800F5B784 /* EndCookingViewController.swift */; };
+		E9923E7029462EB100B84C5B /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9923E6F29462EB100B84C5B /* PagerViewController.swift */; };
 		E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C04289EBE81002EA405 /* AppDelegate.swift */; };
 		E9A49C07289EBE81002EA405 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C06289EBE81002EA405 /* SceneDelegate.swift */; };
 		E9A49C09289EBE81002EA405 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C08289EBE81002EA405 /* MainViewController.swift */; };
@@ -128,6 +129,7 @@
 		E97D37C928A131650016E582 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		E9857BDD292D0B330043273D /* DetailSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingViewController.swift; sourceTree = "<group>"; };
 		E98F12D129003A0800F5B784 /* EndCookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCookingViewController.swift; sourceTree = "<group>"; };
+		E9923E6F29462EB100B84C5B /* PagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
 		E9A49C01289EBE81002EA405 /* Coogle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coogle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A49C04289EBE81002EA405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A49C06289EBE81002EA405 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				E936C24E28B26846002DF5D8 /* CookingViewController.swift */,
 				E98F12D129003A0800F5B784 /* EndCookingViewController.swift */,
+				E9923E6F29462EB100B84C5B /* PagerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */,
 				E9F7D1862927A8410015C2B7 /* StepRecipeTableViewCell.swift in Sources */,
 				E9FC19C429335E040028DEF3 /* ReviewHeaderView.swift in Sources */,
+				E9923E7029462EB100B84C5B /* PagerViewController.swift in Sources */,
 				E9A49C89289EC43C002EA405 /* Extension.swift in Sources */,
 				E927933C28BFAE39007BD246 /* ReviewTableViewCell.swift in Sources */,
 				E9A9ED0429250345001441A2 /* CreateRecipeViewModel.swift in Sources */,

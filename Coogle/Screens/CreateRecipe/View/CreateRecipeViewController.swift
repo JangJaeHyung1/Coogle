@@ -15,6 +15,8 @@ class CreateRecipeViewController: UIViewController {
     var recipeName = ""
     private let placeholder = "예시) 간단한 밥반찬으로 딱 좋은 소세지\n야채볶음을 한번 만들어보겠습니다."
     let categoryArr = ["메인요리","국 찌개", "밑반찬", "다이어트", "건강주스"]
+    let personArr = ["1인분","2인분", "3인분", "4인분"]
+    
     private let disposeBag = DisposeBag()
     let viewModel = CreateRecipeViewModel()
     private let naviView: NaviBackUIView = {
@@ -73,6 +75,15 @@ class CreateRecipeViewController: UIViewController {
         return btn
     }()
     
+    private let moreBtnImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "moreBtn")
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.isUserInteractionEnabled = true
+        img.contentMode = .scaleAspectFit
+        return img
+    }()
+    
     private let recipeIntroLbl: BaseLbl = {
         let lbl = BaseLbl()
         lbl.text = "레시피를 간략하게 설명해주세요"
@@ -94,7 +105,6 @@ class CreateRecipeViewController: UIViewController {
     private let easyBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("쉬움", for: .normal)
-        btn.setTitleColor(BaseColor.red, for: .selected)
         btn.setTitleColor(BaseColor.sub, for: .normal)
         btn.layer.borderColor = BaseColor.border.cgColor
         btn.layer.borderWidth = 1
@@ -109,7 +119,6 @@ class CreateRecipeViewController: UIViewController {
     private let normalBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("보통", for: .normal)
-        btn.setTitleColor(BaseColor.red, for: .selected)
         btn.setTitleColor(BaseColor.sub, for: .normal)
         btn.layer.borderColor = BaseColor.border.cgColor
         btn.layer.borderWidth = 1
@@ -121,18 +130,9 @@ class CreateRecipeViewController: UIViewController {
         return btn
     }()
     
-    private let moreBtnImage: UIImageView = {
-        let img = UIImageView()
-        img.image = UIImage(named: "moreBtn")
-        img.translatesAutoresizingMaskIntoConstraints = false
-        img.isUserInteractionEnabled = true
-        img.contentMode = .scaleAspectFit
-        return img
-    }()
     private let difficultBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("어려움", for: .normal)
-        btn.setTitleColor(BaseColor.red, for: .selected)
         btn.setTitleColor(BaseColor.sub, for: .normal)
         btn.layer.borderColor = BaseColor.border.cgColor
         btn.layer.borderWidth = 1
@@ -154,6 +154,35 @@ class CreateRecipeViewController: UIViewController {
     }()
     
     private lazy var difficultyBtnArr: [UIButton] = [easyBtn, normalBtn, difficultBtn]
+    
+    private let personLbl: BaseLbl = {
+        let lbl = BaseLbl()
+        lbl.text = "몇 인분인가요?"
+        return lbl
+    }()
+    
+    private let personTf: BaseTf = {
+        let txf = BaseTf()
+        txf.isEnabled = false
+        txf.placeholder = "예) 1인분"
+        return txf
+    }()
+    
+    private let moreBtn2: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.adjustsImageWhenHighlighted = false
+        return btn
+    }()
+    
+    private let moreBtnImage2: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "moreBtn")
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.isUserInteractionEnabled = true
+        img.contentMode = .scaleAspectFit
+        return img
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,9 +220,11 @@ extension CreateRecipeViewController {
         for i in 0..<difficultyBtnArr.count {
             if btn == difficultyBtnArr[i] {
                 viewModel.input.firstPageDifficulty.accept(i)
+                difficultyBtnArr[i].setTitleColor(BaseColor.red, for: .normal)
                 difficultyBtnArr[i].isSelected = true
                 difficultyBtnArr[i].layer.borderColor = BaseColor.red.cgColor
             } else {
+                difficultyBtnArr[i].setTitleColor(BaseColor.sub, for: .normal)
                 difficultyBtnArr[i].isSelected = false
                 difficultyBtnArr[i].layer.borderColor = BaseColor.border.cgColor
             }
@@ -252,6 +283,25 @@ extension CreateRecipeViewController {
                 }
                 UIView.animate(withDuration: 0.3, animations: {
                     self.moreBtnImage.transform = self.moreBtnImage.transform.rotated(by: .pi)
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+                
+            })
+            .disposed(by: disposeBag)
+        
+        moreBtn2.rx.tap
+            .throttle(.milliseconds(300), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext:{ [unowned self] _ in
+                self.moreBtn.isSelected = !self.moreBtn.isSelected
+                
+                if self.moreBtn.isSelected {
+                    createPickerView2()
+                } else {
+                    toolBar.removeFromSuperview()
+                    picker.removeFromSuperview()
+                }
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.moreBtnImage2.transform = self.moreBtnImage2.transform.rotated(by: .pi)
                     self.view.layoutIfNeeded()
                 }, completion: nil)
                 
@@ -323,6 +373,11 @@ extension CreateRecipeViewController {
         view.addSubview(normalBtn)
         view.addSubview(difficultBtn)
         view.addSubview(nextBtn)
+        
+        view.addSubview(personTf)
+        view.addSubview(personLbl)
+        view.addSubview(moreBtn2)
+        view.addSubview(moreBtnImage2)
     }
     
     private func setConstraints() {
@@ -393,6 +448,25 @@ extension CreateRecipeViewController {
         difficultBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
         difficultBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
+        personLbl.topAnchor.constraint(equalTo: difficultBtn.bottomAnchor, constant: 20).isActive = true
+        personLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        
+        personTf.topAnchor.constraint(equalTo: personLbl.bottomAnchor, constant: 10).isActive = true
+        personTf.leadingAnchor.constraint(equalTo: recipeNameLbl.leadingAnchor).isActive = true
+        personTf.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        personTf.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        moreBtnImage2.centerYAnchor.constraint(equalTo: personTf.centerYAnchor).isActive = true
+        moreBtnImage2.trailingAnchor.constraint(equalTo: personTf.trailingAnchor, constant: -10).isActive = true
+        moreBtnImage2.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        moreBtnImage2.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        
+        moreBtn2.leadingAnchor.constraint(equalTo: personTf.leadingAnchor).isActive = true
+        moreBtn2.trailingAnchor.constraint(equalTo: personTf.trailingAnchor).isActive = true
+        moreBtn2.bottomAnchor.constraint(equalTo: personTf.bottomAnchor).isActive = true
+        moreBtn2.topAnchor.constraint(equalTo: personTf.topAnchor).isActive = true
+        
+        
         nextBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
         nextBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         nextBtn.heightAnchor.constraint(equalToConstant: 52).isActive = true
@@ -406,22 +480,36 @@ extension CreateRecipeViewController: UITextFieldDelegate, UIPickerViewDelegate,
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryArr.count
+        if pickerView.tag == 0 {
+            return categoryArr.count
+        } else {
+            return personArr.count
+        }
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == 0 {
         return categoryArr[row]
+        } else {
+            return personArr[row]
+        }
     }
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 0 {
         categoryTf.text = categoryArr[row]
         viewModel.input.firstPageCategory.accept(categoryArr[row])
+        } else {
+            personTf.text = personArr[row]
+            viewModel.input.firstPagePerson.accept(personArr[row])
+        }
     }
     
     func createPickerView(){
         picker = UIPickerView.init()
+        picker.tag = 0
         picker.delegate = self
         picker.dataSource = self
         picker.backgroundColor = UIColor.white
@@ -445,6 +533,34 @@ extension CreateRecipeViewController: UITextFieldDelegate, UIPickerViewDelegate,
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         moreBtn.sendActions(for: .touchUpInside)
+    }
+    
+    func createPickerView2(){
+        picker = UIPickerView.init()
+        picker.tag = 1
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = UIColor.white
+        picker.setValue(UIColor.black, forKey: "textColor")
+        picker.autoresizingMask = .flexibleWidth
+        picker.contentMode = .center
+        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(picker)
+        
+        
+                
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let selectBtn = UIBarButtonItem.init(title: "선택", style: .done, target: self, action: #selector(onDoneButtonTapped2))
+        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 40))
+        toolBar.setItems([flexSpace,selectBtn], animated: true)
+        self.view.addSubview(toolBar)
+        
+        view.layoutIfNeeded()
+    }
+    @objc func onDoneButtonTapped2() {
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+        moreBtn2.sendActions(for: .touchUpInside)
     }
 }
 
