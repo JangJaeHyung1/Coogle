@@ -127,6 +127,7 @@ extension CreateRecipeThirdViewController {
         nextBtn.rx.tap
             .subscribe(onNext:{ [weak self] _ in
                 guard let self = self else { return }
+                self.viewModel.stat.createRecipe.onNext(())
                 self.backTwo(1)
             })
             .disposed(by: disposeBag)

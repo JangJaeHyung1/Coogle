@@ -50,14 +50,12 @@ extension SettingViewController {
     
     private func setTableView(){
         tableView = UITableView()
-        //        tableView = UITableView(frame: .zero, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.register(TipTableViewCell.self, forCellReuseIdentifier: TipTableViewCell.cellId)
         tableView.backgroundColor = .white
-        //        tableView.register(CommunityHeaderView.self, forHeaderFooterViewReuseIdentifier: CommunityHeaderView.headerViewID)
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -112,13 +110,26 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let nextVC = MyRecipeViewController()
-            self.navigationController?.pushViewController(
-                nextVC, animated: true)
+            if LoginUserHashCache.shared.check() != nil {
+                let nextVC = MyRecipeViewController()
+                self.navigationController?.pushViewController(
+                    nextVC, animated: true)
+            } else {
+                let nextVC = LoginViewController()
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true)
+            }
+            
         } else if indexPath.row == 1 {
-            let nextVC = MySettingViewController()
-            self.navigationController?.pushViewController(
-                nextVC, animated: true)
+            if LoginUserHashCache.shared.check() != nil {
+                let nextVC = MySettingViewController()
+                self.navigationController?.pushViewController(
+                    nextVC, animated: true)
+            } else {
+                let nextVC = LoginViewController()
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true)
+            }
         } else {
             let nextVC = DetailSettingViewController()
             self.navigationController?.pushViewController(

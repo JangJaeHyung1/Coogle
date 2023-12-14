@@ -12,7 +12,7 @@ import AVFoundation
 import Speech
 
 class PagerViewController: UIViewController {
-
+    
     private let disposeBag = DisposeBag()
     private let naviView: NaviBackUIView = {
         let view = NaviBackUIView()
@@ -27,18 +27,6 @@ class PagerViewController: UIViewController {
         return vc
     }()
     
-    private let nextBtn: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("요리 완성", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = BaseFont.bold
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.adjustsImageWhenHighlighted = false
-        btn.backgroundColor = BaseColor.btnColor
-        btn.layer.cornerRadius = 4
-        btn.isHidden = true
-        return btn
-    }()
     
     lazy var dataViewControllers: [CookingViewController] = []
     
@@ -65,14 +53,10 @@ class PagerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
-        
-        
-        
         for i in 0..<limitPageNum {
             dataViewControllers.append(CookingViewController(idx: i, limit: limitPageNum))
         }
-        
+        setUp()
         if let firstVC = dataViewControllers.first {
             pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
@@ -116,7 +100,9 @@ class PagerViewController: UIViewController {
             self.recognitionRequest?.endAudio()
             if self.recognizerCheckFlag {
                 if stt.contains("다음") {
-                    
+                    DispatchQueue.main.async {
+                        self.goToNextViewController()
+                    }
                 }
             }
         })
@@ -158,7 +144,8 @@ extension PagerViewController {
             })
             .disposed(by: disposeBag)
         
-        nextBtn.rx.tap
+
+        dataViewControllers.last?.nextBtn.rx.tap
             .observe(on: MainScheduler.instance)
             .subscribe(onNext:{ [unowned self] res in
                 if self.audioEngine.isRunning {
@@ -185,7 +172,6 @@ extension PagerViewController {
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         view.addSubview(naviView)
-        view.addSubview(nextBtn)
     }
     
     private func setConstraints() {
@@ -202,10 +188,6 @@ extension PagerViewController {
         ])
         pageViewController.didMove(toParent: self)
         
-        nextBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
-        nextBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        nextBtn.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        nextBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12).isActive = true
     }
 }
 
@@ -214,10 +196,6 @@ extension PagerViewController: UIPageViewControllerDataSource, UIPageViewControl
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = dataViewControllers.firstIndex(of: viewController as! CookingViewController) else { return nil }
         let previousIndex = index - 1
-        DispatchQueue.main.async {
-            self.nextBtn.isHidden = true
-        }
-//        print("before index : \(index)")
         if previousIndex < 0 {
             return nil
         }
@@ -228,15 +206,29 @@ extension PagerViewController: UIPageViewControllerDataSource, UIPageViewControl
         guard let index = dataViewControllers.firstIndex(of: viewController as! CookingViewController) else { return nil }
 //        print("next index : \(index)")
         let nextIndex = index + 1
-        if nextIndex == limitPageNum {
-            DispatchQueue.main.async {
-                self.nextBtn.isHidden = false
-            }
-        }
         if nextIndex == dataViewControllers.count {
             return nil
         }
         return dataViewControllers[nextIndex]
+    }
+    
+    func goToNextViewController() {
+        PageNum.value += 1
+        
+        if PageNum.value == self.limitPageNum {
+            if self.audioEngine.isRunning {
+                debugPrint("🔵next btn tap : engine stop")
+                self.inputNode?.removeTap(onBus: 0)
+                self.audioEngine.stop()
+                self.recognitionRequest?.endAudio()
+            }
+            let nextVC = EndCookingViewController()
+            nextVC.idx = self.limitPageNum
+            self.navigationController?.pushViewController(
+                nextVC, animated: true)
+        } else {
+            pageViewController.setViewControllers([dataViewControllers[PageNum.value]], direction: .forward, animated: true)
+        }
     }
 }
 extension PagerViewController {

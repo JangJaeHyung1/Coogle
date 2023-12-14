@@ -87,6 +87,7 @@ extension MyRecipeViewController {
         tableViewMain.rx.itemSelected
             .subscribe(onNext:{ [unowned self] _ in
                 let nextVC = DetailViewController(isBookmark: false, canEdit: true)
+                PageNum.value = 0
                 self.navigationController?.pushViewController(
                     nextVC, animated: true)
             })

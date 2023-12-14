@@ -59,9 +59,6 @@ extension TabbarViewController {
     }
     
     private func setNavi() {
-//        self.navigationItem.title = "여행 일정"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.isHidden = true
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
@@ -89,9 +86,10 @@ extension TabbarViewController {
             
             items[x].image = image?.withRenderingMode(.alwaysOriginal)
             items[x].selectedImage = selectedImage?.withRenderingMode(.alwaysOriginal)
-            
         }
+        
         self.tabBar.unselectedItemTintColor = BaseColor.main
         self.tabBar.tintColor = BaseColor.tabbarTintColor
     }
+    
 }

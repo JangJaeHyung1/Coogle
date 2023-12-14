@@ -25,6 +25,16 @@ class BookmarkViewController: UIViewController {
         setUp()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if LoginUserHashCache.shared.check() == nil {
+            self.navigationController?.popViewController(animated: false)
+            let nextVC = LoginViewController()
+            nextVC.delegate = self
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: false)
+        }
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -81,6 +91,7 @@ extension BookmarkViewController {
         tableViewMain.rx.itemSelected
             .subscribe(onNext:{ [unowned self] _ in
                 let nextVC = DetailViewController(isBookmark: true, canEdit: false)
+                PageNum.value = 0 
                 self.navigationController?.pushViewController(
                     nextVC, animated: true)
             })
@@ -123,5 +134,13 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .white
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension BookmarkViewController: SetTabbarMainDelegate {
+    func setTabbarMain() {
+        if let tabvc = navigationController?.viewControllers[0] as? UITabBarController {
+            tabvc.selectedIndex = 0
+        }
     }
 }

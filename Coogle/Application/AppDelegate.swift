@@ -7,10 +7,20 @@
 
 import UIKit
 import RxSwift
+import RxKakaoSDKCommon
+import RxKakaoSDKAuth
+import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            
+            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                return AuthController.rx.handleOpenUrl(url: url, options: options)
+            }
+            
+            return false
+        }
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return .portrait
@@ -19,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 0.5)
         // Override point for customization after application launch.
-        
+        RxKakaoSDK.initSDK(appKey: "a71942e170b8eef53abd9e474c09666b")
         // Override point for customization after application launch.
         RxImagePickerDelegateProxy.register { RxImagePickerDelegateProxy(imagePicker: $0) }
         

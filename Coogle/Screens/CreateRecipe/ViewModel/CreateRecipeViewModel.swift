@@ -14,6 +14,11 @@ class CreateRecipeViewModel {
     
     var input = Input()
     var output = Output()
+    var stat = Stat()
+    
+    struct Stat {
+        let createRecipe = PublishSubject<Void>()
+    }
     
     struct Input {
         let firstPageRecipeName = BehaviorRelay<String>(value: "")
@@ -32,9 +37,13 @@ class CreateRecipeViewModel {
         let firstCompleted = PublishRelay<Bool>()
         let secondCompleted = PublishRelay<Bool>()
         let thirdCompleted = PublishRelay<Bool>()
+        
+        let recipeData = PublishRelay<RecipeData>()
     }
     
     init() {
+        
+        
         
         Observable.combineLatest(input.thirdPageImageData, input.thirdPageDescription)
             .subscribe { [weak self] (data, description) in
@@ -92,9 +101,52 @@ class CreateRecipeViewModel {
             })
             .disposed(by: disposeBag)
         
+        
         transform()
     }
     private func transform(){
+        let firstPage5 = Observable.combineLatest(
+            input.firstPageRecipeName,
+            input.firstPageCategory,
+            input.firstPagePerson,
+            input.firstPageDescription,
+            input.firstPageDifficulty)
+        
+        let secondThrid4 = Observable.combineLatest(
+            input.secondPageIngredientFrist,
+            input.secondPageIngredientSecond,
+            input.thirdPageDescription,
+            input.thirdPageDescription)
+        
+        let recipeDataObs = Observable.combineLatest(firstPage5, secondThrid4, stat.createRecipe) { ($0.0, $0.1, $0.2, $0.3, $0.4, $1.0, $1.1, $1.2, $1.3, $2) }
+        
+        recipeDataObs
+            .subscribe(onNext:{ a,b,c,d,e,f,g,h,i,j in
+                var contentArr: [Content] = []
+                i.enumerated().forEach { idx, item in
+                    contentArr.append(Content.init(step: idx, image: h[idx], text: item))
+                }
+                var ingredientsArr: [Ingredient] = []
+                f.forEach { item in
+                    ingredientsArr.append(Ingredient(ingredient: item[0], amount: item[1]))
+                }
+                var codimentsArr: [Condiment] = []
+                g.forEach { item in
+                    codimentsArr.append(Condiment(condiment: item[0], amount: item[1]))
+                }
+                let data = RecipeData(title: a, serving: Int(c) ?? 0, description: d, level: e, categoryId: 1, contents: contentArr, ingredients: ingredientsArr, condiments: codimentsArr)
+                dump(data)
+                CreateRecipeAPI.shared.uploadRecipeAPI(userId: "userId", recipedata: data) { result in
+                    switch result {
+                    case .success(let res):
+                        print("🟢CreateRecipeAPI.shared.uploadRecipeAPI success res: \(res)")
+                    case .failure(let err):
+                        print("🔴CreateRecipeAPI.shared.uploadRecipeAPI err: \(err)")
+                    }
+                }
+                
+            })
+            .disposed(by: disposeBag)
         
     }
 }

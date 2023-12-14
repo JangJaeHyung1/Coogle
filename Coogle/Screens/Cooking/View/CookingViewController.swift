@@ -92,13 +92,24 @@ class CookingViewController: UIViewController {
         return lbl
     }()
     
-    
-    
     private let contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
         return view
+    }()
+    
+    let nextBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("요리 완성", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = BaseFont.bold
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.adjustsImageWhenHighlighted = false
+        btn.backgroundColor = BaseColor.btnColor
+        btn.layer.cornerRadius = 4
+        btn.isHidden = true
+        return btn
     }()
     
     override func viewDidLoad() {
@@ -116,6 +127,11 @@ class CookingViewController: UIViewController {
         }
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        PageNum.value = idx
+        nextBtn.isHidden = idx != limitPageNum - 1
+        print("현재 페이지 cooking vc idx : \(self.idx)")
+    }
     
 }
 
@@ -130,29 +146,7 @@ extension CookingViewController {
     }
     
     private func addGesture() {
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(CookingViewController.respondToSwipeGesture(_:)))
-//        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-//        self.view.addGestureRecognizer(swipeLeft)
     }
-    
-//    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
-//        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
-//            switch swipeGesture.direction {
-//            case UISwipeGestureRecognizer.Direction.left :
-//                if idx != limitPageNum {
-//                    let nextVC = CookingViewController(idx: self.idx + 1, limit: self.limitPageNum )
-//                    nextVC.delegate = self
-//                    self.inputNode?.removeTap(onBus: 0)
-//                    self.audioEngine.stop()
-//                    self.recognitionRequest?.endAudio()
-//                    self.navigationController?.pushViewController(
-//                        nextVC, animated: true)
-//                }
-//            default:
-//                break
-//            }
-//        }
-//    }
     
     private func fetch() {
         
@@ -170,13 +164,16 @@ extension CookingViewController {
         view.addSubview(stepTitleLbl)
         view.addSubview(stepNumLbl)
         view.addSubview(subLbl)
-        
+        view.addSubview(nextBtn)
         view.addSubview(contentView)
         contentView.addSubview(contentLbl)
     }
     
     private func setConstraints() {
-        
+        nextBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
+        nextBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        nextBtn.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        nextBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12).isActive = true
         
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true

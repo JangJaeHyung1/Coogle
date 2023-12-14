@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90A76912992A10F0009E30C /* CreateRecipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A76902992A10F0009E30C /* CreateRecipeAPI.swift */; };
+		E90A76932992A74D0009E30C /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A76922992A74D0009E30C /* RequestAPI.swift */; };
+		E90A76952992A7910009E30C /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A76942992A7910009E30C /* RecipeData.swift */; };
 		E927933C28BFAE39007BD246 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927933B28BFAE39007BD246 /* ReviewTableViewCell.swift */; };
 		E93688262923C0E600C0FFCC /* CreateRecipeSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93688252923C0E600C0FFCC /* CreateRecipeSecondViewController.swift */; };
 		E93688282923C3F200C0FFCC /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93688272923C3F200C0FFCC /* IngredientsTableViewCell.swift */; };
@@ -14,6 +17,10 @@
 		E936882C2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936882B2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift */; };
 		E936C24F28B26846002DF5D8 /* CookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936C24E28B26846002DF5D8 /* CookingViewController.swift */; };
 		E945BD0728AE4ECB00CBC06F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */; };
+		E9489A79298FACD400D9212A /* RxKakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E9489A78298FACD400D9212A /* RxKakaoSDK */; };
+		E9489A7C2990018D00D9212A /* PageNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9489A7B2990018D00D9212A /* PageNum.swift */; };
+		E9561DC7298BF76D00D5D0A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9561DC6298BF76D00D5D0A4 /* LoginViewController.swift */; };
+		E9561DCA298BF85500D5D0A4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E9561DC9298BF85500D5D0A4 /* SnapKit */; };
 		E97B9F432921173700AC42EB /* LaunchScreenLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */; };
 		E97B9F442921173700AC42EB /* LaunchScreenLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F412921173700AC42EB /* LaunchScreenLogo.png */; };
 		E97B9F452921173700AC42EB /* LaunchScreenLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B9F422921173700AC42EB /* LaunchScreenLogo@3x.png */; };
@@ -27,6 +34,7 @@
 		E9857BDE292D0B330043273D /* DetailSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9857BDD292D0B330043273D /* DetailSettingViewController.swift */; };
 		E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F12D129003A0800F5B784 /* EndCookingViewController.swift */; };
 		E9923E7029462EB100B84C5B /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9923E6F29462EB100B84C5B /* PagerViewController.swift */; };
+		E99CFA2429AB409A00F002F0 /* LoginUserHashCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CFA2329AB409A00F002F0 /* LoginUserHashCache.swift */; };
 		E9A49C05289EBE81002EA405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C04289EBE81002EA405 /* AppDelegate.swift */; };
 		E9A49C07289EBE81002EA405 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C06289EBE81002EA405 /* SceneDelegate.swift */; };
 		E9A49C09289EBE81002EA405 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A49C08289EBE81002EA405 /* MainViewController.swift */; };
@@ -110,6 +118,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E90A76902992A10F0009E30C /* CreateRecipeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeAPI.swift; sourceTree = "<group>"; };
+		E90A76922992A74D0009E30C /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
+		E90A76942992A7910009E30C /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		E927933B28BFAE39007BD246 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		E93688252923C0E600C0FFCC /* CreateRecipeSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeSecondViewController.swift; sourceTree = "<group>"; };
 		E93688272923C3F200C0FFCC /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +128,8 @@
 		E936882B2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsLastTableViewCell.swift; sourceTree = "<group>"; };
 		E936C24E28B26846002DF5D8 /* CookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewController.swift; sourceTree = "<group>"; };
 		E945BD0628AE4ECB00CBC06F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		E9489A7B2990018D00D9212A /* PageNum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNum.swift; sourceTree = "<group>"; };
+		E9561DC6298BF76D00D5D0A4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E97B9F402921173700AC42EB /* LaunchScreenLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenLogo@2x.png"; sourceTree = "<group>"; };
 		E97B9F412921173700AC42EB /* LaunchScreenLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreenLogo.png; sourceTree = "<group>"; };
 		E97B9F422921173700AC42EB /* LaunchScreenLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenLogo@3x.png"; sourceTree = "<group>"; };
@@ -130,6 +143,7 @@
 		E9857BDD292D0B330043273D /* DetailSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingViewController.swift; sourceTree = "<group>"; };
 		E98F12D129003A0800F5B784 /* EndCookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCookingViewController.swift; sourceTree = "<group>"; };
 		E9923E6F29462EB100B84C5B /* PagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
+		E99CFA2329AB409A00F002F0 /* LoginUserHashCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserHashCache.swift; sourceTree = "<group>"; };
 		E9A49C01289EBE81002EA405 /* Coogle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coogle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A49C04289EBE81002EA405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A49C06289EBE81002EA405 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,8 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A49C7F289EC223002EA405 /* RxSwift in Frameworks */,
+				E9561DCA298BF85500D5D0A4 /* SnapKit in Frameworks */,
 				E9A49C7D289EC223002EA405 /* RxRelay in Frameworks */,
 				E9A49C7B289EC223002EA405 /* RxCocoa in Frameworks */,
+				E9489A79298FACD400D9212A /* RxKakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +265,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9489A7A2990017700D9212A /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				E9489A7B2990018D00D9212A /* PageNum.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 		E97B9F462921179500AC42EB /* Image */ = {
@@ -495,6 +519,7 @@
 		E9A49C83289EC2EC002EA405 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E9489A7A2990017700D9212A /* Singleton */,
 				E9F7D1912927BD060015C2B7 /* ImagePicker */,
 				E9A49C86289EC381002EA405 /* DesignSystem.swift */,
 				E9A49C88289EC43C002EA405 /* Extension.swift */,
@@ -507,6 +532,9 @@
 		E9A49C84289EC303002EA405 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				E90A76902992A10F0009E30C /* CreateRecipeAPI.swift */,
+				E90A76922992A74D0009E30C /* RequestAPI.swift */,
+				E99CFA2329AB409A00F002F0 /* LoginUserHashCache.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -515,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				E9FC19BF293357A90028DEF3 /* DetailRecipeFirstInfo.swift */,
+				E90A76942992A7910009E30C /* RecipeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -592,6 +621,7 @@
 				E97B9F4D29211D1300AC42EB /* MyRecipeViewController.swift */,
 				E97B9F542921507100AC42EB /* MySettingViewController.swift */,
 				E9857BDD292D0B330043273D /* DetailSettingViewController.swift */,
+				E9561DC6298BF76D00D5D0A4 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -670,6 +700,8 @@
 				E9A49C7A289EC223002EA405 /* RxCocoa */,
 				E9A49C7C289EC223002EA405 /* RxRelay */,
 				E9A49C7E289EC223002EA405 /* RxSwift */,
+				E9561DC9298BF85500D5D0A4 /* SnapKit */,
+				E9489A78298FACD400D9212A /* RxKakaoSDK */,
 			);
 			productName = Coogle;
 			productReference = E9A49C01289EBE81002EA405 /* Coogle.app */;
@@ -701,6 +733,8 @@
 			mainGroup = E9A49BF8289EBE81002EA405;
 			packageReferences = (
 				E9A49C79289EC223002EA405 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E9561DC8298BF85500D5D0A4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E9489A77298FACD400D9212A /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */,
 			);
 			productRefGroup = E9A49C02289EBE81002EA405 /* Products */;
 			projectDirPath = "";
@@ -796,13 +830,16 @@
 				E97B9F4E29211D1300AC42EB /* MyRecipeViewController.swift in Sources */,
 				E945BD0728AE4ECB00CBC06F /* DetailTableViewCell.swift in Sources */,
 				E97B9F53292127B500AC42EB /* BookmarkViewController.swift in Sources */,
+				E9489A7C2990018D00D9212A /* PageNum.swift in Sources */,
 				E9A49C82289EC2BB002EA405 /* NaviBarUIView.swift in Sources */,
 				E936882A2923C49D00C0FFCC /* CustomTableHeaderView.swift in Sources */,
 				E9DADD0528A8D93A002897FD /* DetailViewController.swift in Sources */,
+				E90A76932992A74D0009E30C /* RequestAPI.swift in Sources */,
 				E9F7D1952927BD110015C2B7 /* RxImagePickerDelegateProxy.swift in Sources */,
 				E9FC19BE2933563B0028DEF3 /* DetailIngredientHeaderView.swift in Sources */,
 				E9F7D1882927BA600015C2B7 /* PhotoPermissionManager.swift in Sources */,
 				E9A790E62905ACD600594A75 /* TipDetailViewController.swift in Sources */,
+				E90A76912992A10F0009E30C /* CreateRecipeAPI.swift in Sources */,
 				E936C24F28B26846002DF5D8 /* CookingViewController.swift in Sources */,
 				E9FC19C0293357A90028DEF3 /* DetailRecipeFirstInfo.swift in Sources */,
 				E9857BDE292D0B330043273D /* DetailSettingViewController.swift in Sources */,
@@ -812,6 +849,7 @@
 				E9A49C07289EBE81002EA405 /* SceneDelegate.swift in Sources */,
 				E98F12D229003A0800F5B784 /* EndCookingViewController.swift in Sources */,
 				E9D5A651290AACD5001051AE /* SettingViewController.swift in Sources */,
+				E9561DC7298BF76D00D5D0A4 /* LoginViewController.swift in Sources */,
 				E9FC19B6293328B80028DEF3 /* SearchViewController.swift in Sources */,
 				E93688282923C3F200C0FFCC /* IngredientsTableViewCell.swift in Sources */,
 				E93688262923C0E600C0FFCC /* CreateRecipeSecondViewController.swift in Sources */,
@@ -823,6 +861,8 @@
 				E97B9F552921507100AC42EB /* MySettingViewController.swift in Sources */,
 				E9F7D1972927BD110015C2B7 /* UIImagePickerViewController+Rx.swift in Sources */,
 				E936882C2923CA7B00C0FFCC /* IngredientsLastTableViewCell.swift in Sources */,
+				E90A76952992A7910009E30C /* RecipeData.swift in Sources */,
+				E99CFA2429AB409A00F002F0 /* LoginUserHashCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +938,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -952,7 +992,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1058,6 +1098,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E9489A77298FACD400D9212A /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk-rx";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.13.1;
+			};
+		};
+		E9561DC8298BF85500D5D0A4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		E9A49C79289EC223002EA405 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -1069,6 +1125,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E9489A78298FACD400D9212A /* RxKakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9489A77298FACD400D9212A /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */;
+			productName = RxKakaoSDK;
+		};
+		E9561DC9298BF85500D5D0A4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9561DC8298BF85500D5D0A4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		E9A49C7A289EC223002EA405 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E9A49C79289EC223002EA405 /* XCRemoteSwiftPackageReference "RxSwift" */;

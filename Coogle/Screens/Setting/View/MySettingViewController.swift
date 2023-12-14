@@ -161,6 +161,13 @@ extension MySettingViewController {
     
     private func bind() {
         
+        logoutBtn.rx.tap
+            .subscribe(onNext:{ [unowned self] res in
+                LoginUserHashCache.shared.logout()
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         conformBtn.rx.tap
             .subscribe(onNext:{ [weak self] _ in
                 guard let self = self else { return }
